@@ -1,0 +1,11 @@
+{
+    "diagnostics": {
+        "undefinedTypes": false,
+        "undefinedConstants": false,
+        "undefinedClassConstants": false,
+        "undefinedMethods": false,
+        "undefinedFunctions": false,
+        "undefinedProperties": false,
+        "typeErrors": false
+    }
+}
