@@ -1962,6 +1962,19 @@ img, svg, iframe, video {
         font-size: 0.7rem;
     }
 }
+
+/* ===== CHATBOT DISABLED STATE ===== */
+.chatbot-float.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none !important;
+    filter: grayscale(0.6);
+    box-shadow: none !important;
+}
+.chatbot-float.disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
     </style>
 </head>
 <body>
@@ -2086,8 +2099,8 @@ img, svg, iframe, video {
     </div>
 </nav>
 
-<!-- ===== CHATBOT FLOATING BUTTON ===== -->
-<a href="{{ route('chatbot') }}" class="chatbot-float" id="chatButton">
+<!-- ===== CHATBOT FLOATING BUTTON - DISABLED UNTIL AUTHENTICATED ===== -->
+<a href="{{ route('chatbot') }}" class="chatbot-float disabled" id="chatButton">
     <i class="fas fa-comment-dots"></i>
     <span>Ask me</span>
 </a>
@@ -2571,6 +2584,8 @@ img, svg, iframe, video {
 
     if (onboardingDone === 'true' || requestApproved === 'true') {
         modal.classList.add('hidden');
+        // Enable chatbot if authenticated
+        enableChatbot();
         return;
     }
 
@@ -2578,6 +2593,18 @@ img, svg, iframe, video {
     var requestPending = sessionStorage.getItem('surecargo_request_pending') === 'true';
     var requestRejected = sessionStorage.getItem('surecargo_request_rejected') === 'true';
     var userRequestId = sessionStorage.getItem('user_request_id');
+
+    // --- Function to enable chatbot ---
+    function enableChatbot() {
+        var chatBtn = document.getElementById('chatButton');
+        if (chatBtn) {
+            chatBtn.classList.remove('disabled');
+            chatBtn.style.pointerEvents = 'auto';
+            chatBtn.style.cursor = 'pointer';
+            chatBtn.style.opacity = '1';
+            chatBtn.style.filter = 'none';
+        }
+    }
 
     // --- Function to check request status from server ---
     function checkRequestStatus() {
@@ -2607,11 +2634,14 @@ img, svg, iframe, video {
         })
         .then(function(data) {
             if (data.status === 'approved') {
-                // Request approved! Close modal
+                // Request approved! Close modal and enable chatbot
                 modal.classList.add('hidden');
                 sessionStorage.setItem('surecargo_request_approved', 'true');
                 sessionStorage.removeItem('surecargo_request_pending');
                 sessionStorage.setItem('surecargo_onboarding_done', 'true');
+
+                // Enable chatbot
+                enableChatbot();
 
                 // Stop polling
                 if (pollInterval) {
@@ -2852,9 +2882,10 @@ img, svg, iframe, video {
                 secretAttempts = 3;
                 isLockedOut = false;
                 saveSecretState();
-                // Auto close modal
+                // Auto close modal and enable chatbot
                 modal.classList.add('hidden');
                 sessionStorage.setItem('surecargo_onboarding_done', 'true');
+                enableChatbot();
                 // Reload page
                 setTimeout(function() {
                     location.reload();
@@ -3111,7 +3142,7 @@ img, svg, iframe, video {
             .btn-outline-custom:not([download]),
             .btn-find-us:not([download]),
             .btn-logout,
-            .chatbot-float,
+            .chatbot-float:not(.disabled),
             .btn-download:not([download])
         `);
 
