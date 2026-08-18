@@ -271,7 +271,7 @@ body::-webkit-scrollbar,
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .logo-area i {
@@ -285,6 +285,27 @@ body::-webkit-scrollbar,
     margin: 0;
     color: var(--text-dark);
     letter-spacing: -0.5px;
+}
+
+/* Mobile hamburger in header */
+.mobile-hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    padding: 4px 8px;
+    cursor: pointer;
+    touch-action: manipulation;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-hamburger:hover {
+    color: var(--primary-color);
 }
 
 .home-btn {
@@ -314,6 +335,10 @@ body::-webkit-scrollbar,
 
 .home-btn:active {
     transform: scale(0.96);
+}
+
+.home-btn .btn-label {
+    display: inline;
 }
 
 /* ============================================================
@@ -521,42 +546,6 @@ body::-webkit-scrollbar,
 }
 
 .chat-input-area button .btn-spinner {
-    border-color: rgba(255, 255, 255, 0.3);
-    border-top-color: var(--white);
-}
-
-/* ============================================================
-   SIDEBAR TOGGLE (FLOATING)
-   ============================================================ */
-.sidebar-toggle-btn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    left: 20px;
-    z-index: 1060 !important;
-    background: var(--primary-color);
-    border: none;
-    border-radius: 60px;
-    width: 56px;
-    height: 56px;
-    color: var(--white);
-    font-size: var(--font-xl);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: all 0.2s;
-    align-items: center;
-    justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    min-width: 56px;
-    min-height: 56px;
-}
-
-.sidebar-toggle-btn:active {
-    transform: scale(0.92);
-}
-
-.sidebar-toggle-btn .btn-spinner {
     border-color: rgba(255, 255, 255, 0.3);
     border-top-color: var(--white);
 }
@@ -863,25 +852,25 @@ body::-webkit-scrollbar,
         left: 0;
     }
 
-    .sidebar-toggle-btn {
+    .sidebar-close-btn {
         display: flex;
     }
 
-    .sidebar-close-btn {
-        display: flex;
+    .mobile-hamburger {
+        display: flex !important;
     }
 }
 
 /* --- Mobile Devices (≤ 768px) --- */
 @media (max-width: 768px) {
     :root {
-        --font-xs: 0.7rem;
-        --font-sm: 0.8rem;
-        --font-base: 0.9rem;
-        --font-md: 1rem;
-        --font-lg: 1.1rem;
-        --font-xl: 1.2rem;
-        --font-xxl: 1.4rem;
+        --font-xs: 0.75rem;
+        --font-sm: 0.85rem;
+        --font-base: 1rem;
+        --font-md: 1.1rem;
+        --font-lg: 1.25rem;
+        --font-xl: 1.35rem;
+        --font-xxl: 1.5rem;
 
         --sp-xs: 0.2rem;
         --sp-sm: 0.4rem;
@@ -898,10 +887,27 @@ body::-webkit-scrollbar,
         font-size: var(--font-lg);
     }
 
+    .logo-area i {
+        font-size: var(--font-lg);
+    }
+
+    .mobile-hamburger {
+        font-size: 1.8rem;
+        padding: 4px 6px;
+    }
+
     .home-btn {
         font-size: var(--font-sm);
         padding: var(--sp-xs) var(--sp-md);
         min-height: 36px;
+    }
+
+    .home-btn .btn-label {
+        display: none;
+    }
+
+    .home-btn i {
+        font-size: 1.2rem;
     }
 
     .sidebar-header {
@@ -1022,25 +1028,17 @@ body::-webkit-scrollbar,
         height: 48px;
         width: 100px;
     }
-
-    .sidebar-toggle-btn {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        min-height: 50px;
-        font-size: var(--font-lg);
-    }
 }
 
 /* --- Small Phones (≤ 600px) --- */
 @media (max-width: 600px) {
     :root {
-        --font-xs: 0.65rem;
-        --font-sm: 0.75rem;
-        --font-base: 0.85rem;
-        --font-md: 0.95rem;
-        --font-lg: 1.05rem;
-        --font-xl: 1.15rem;
+        --font-xs: 0.7rem;
+        --font-sm: 0.8rem;
+        --font-base: 0.95rem;
+        --font-md: 1.05rem;
+        --font-lg: 1.15rem;
+        --font-xl: 1.25rem;
 
         --sp-xs: 0.15rem;
         --sp-sm: 0.3rem;
@@ -1066,10 +1064,18 @@ body::-webkit-scrollbar,
         font-size: var(--font-md);
     }
 
+    .mobile-hamburger {
+        font-size: 1.6rem;
+    }
+
     .home-btn {
         font-size: var(--font-xs);
         padding: 0.15rem var(--sp-sm);
         min-height: 32px;
+    }
+
+    .home-btn i {
+        font-size: 1rem;
     }
 
     .sidebar-header h3 {
@@ -1155,16 +1161,6 @@ body::-webkit-scrollbar,
         height: 6px;
     }
 
-    .sidebar-toggle-btn {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
-        bottom: 20px;
-        left: 14px;
-        font-size: var(--font-base);
-    }
-
     .sidebar-close-btn {
         top: var(--sp-sm);
         right: var(--sp-sm);
@@ -1235,12 +1231,12 @@ body::-webkit-scrollbar,
 /* --- Very Small Phones (≤ 500px) --- */
 @media (max-width: 500px) {
     :root {
-        --font-xs: 0.6rem;
-        --font-sm: 0.7rem;
-        --font-base: 0.8rem;
-        --font-md: 0.9rem;
-        --font-lg: 1rem;
-        --font-xl: 1.1rem;
+        --font-xs: 0.65rem;
+        --font-sm: 0.75rem;
+        --font-base: 0.85rem;
+        --font-md: 0.95rem;
+        --font-lg: 1.05rem;
+        --font-xl: 1.15rem;
 
         --sp-xs: 0.1rem;
         --sp-sm: 0.25rem;
@@ -1264,7 +1260,7 @@ body::-webkit-scrollbar,
     }
 
     .logo-area {
-        gap: 8px;
+        gap: 6px;
     }
 
     .logo-area i {
@@ -1275,10 +1271,21 @@ body::-webkit-scrollbar,
         font-size: var(--font-sm);
     }
 
+    .mobile-hamburger {
+        font-size: 1.4rem;
+        padding: 2px 4px;
+        min-height: 36px;
+        min-width: 36px;
+    }
+
     .home-btn {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
         padding: 0.1rem var(--sp-xs);
         min-height: 28px;
+    }
+
+    .home-btn i {
+        font-size: 0.9rem;
     }
 
     .bubble {
@@ -1318,16 +1325,6 @@ body::-webkit-scrollbar,
         min-height: 32px;
     }
 
-    .sidebar-toggle-btn {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
-        min-height: 40px;
-        bottom: 16px;
-        left: 12px;
-        font-size: var(--font-sm);
-    }
-
     .sidebar-header {
         padding: var(--sp-sm) var(--sp-md);
     }
@@ -1342,7 +1339,7 @@ body::-webkit-scrollbar,
     }
 
     .quick-question {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
         padding: 0.15rem var(--sp-xs);
         min-height: 28px;
         gap: 6px;
@@ -1430,12 +1427,12 @@ body::-webkit-scrollbar,
 /* --- Extra Small (≤ 400px) --- */
 @media (max-width: 400px) {
     :root {
-        --font-xs: 0.55rem;
-        --font-sm: 0.65rem;
-        --font-base: 0.75rem;
-        --font-md: 0.85rem;
-        --font-lg: 0.95rem;
-        --font-xl: 1.05rem;
+        --font-xs: 0.6rem;
+        --font-sm: 0.7rem;
+        --font-base: 0.8rem;
+        --font-md: 0.9rem;
+        --font-lg: 1rem;
+        --font-xl: 1.1rem;
 
         --sp-xs: 0.08rem;
         --sp-sm: 0.2rem;
@@ -1458,7 +1455,7 @@ body::-webkit-scrollbar,
     }
 
     .bubble {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
         padding: 0.15rem var(--sp-xs);
         max-width: 92%;
         border-radius: 0.75rem;
@@ -1478,32 +1475,22 @@ body::-webkit-scrollbar,
     }
 
     .chat-input-area input {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         padding: 0.1rem var(--sp-xs);
         min-height: 28px;
         border-radius: 30px;
     }
 
     .chat-input-area input::placeholder {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
     }
 
     .chat-input-area button {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         padding: 0 var(--sp-xs);
         height: 30px;
         min-height: 28px;
         border-radius: 30px;
-    }
-
-    .sidebar-toggle-btn {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-        min-height: 36px;
-        bottom: 12px;
-        left: 10px;
-        font-size: 0.7rem;
     }
 
     .sidebar-header h3 {
@@ -1515,7 +1502,7 @@ body::-webkit-scrollbar,
     }
 
     .quick-question {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         padding: 0.1rem var(--sp-xs);
         min-height: 24px;
         gap: 4px;
@@ -1535,10 +1522,21 @@ body::-webkit-scrollbar,
         font-size: 0.65rem;
     }
 
+    .mobile-hamburger {
+        font-size: 1.2rem;
+        padding: 2px 3px;
+        min-height: 30px;
+        min-width: 30px;
+    }
+
     .home-btn {
-        font-size: 0.45rem;
+        font-size: 0.5rem;
         padding: 0.05rem var(--sp-xs);
         min-height: 24px;
+    }
+
+    .home-btn i {
+        font-size: 0.7rem;
     }
 
     .sidebar-close-btn {
@@ -1634,18 +1632,6 @@ body::-webkit-scrollbar,
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
 }
-
-/* ============================================================
-   HIDDEN AUDIO
-   ============================================================ */
-#bgAudio {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
-}
     </style>
 </head>
 <body>
@@ -1691,10 +1677,6 @@ body::-webkit-scrollbar,
         </div>
     </div>
 
-    <!-- ===== HIDDEN AUDIO ELEMENTS ===== -->
-    <audio id="bgAudio" src="{{ asset('audio/truckengine.mp3') }}" loop preload="auto"></audio>
-    <audio id="clickAudio" src="{{ asset('audio/click.mp3') }}" preload="auto"></audio>
-
     <!-- ===== APP ===== -->
     <div class="app-wrapper no-fouc" id="appWrapper">
 
@@ -1714,18 +1696,21 @@ body::-webkit-scrollbar,
         <div class="chat-main">
             <div class="chat-header">
                 <div class="logo-area">
+                    <button class="mobile-hamburger" id="mobileHamburger" aria-label="Toggle sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
                     <i class="fas fa-cube"></i>
                     <h1>SureCargo AI</h1>
                 </div>
-                <a href="{{ url('/') }}" class="home-btn" id="homeBtn"><i class="fas fa-arrow-left me-2"></i> Home</a>
+                <a href="{{ url('/') }}" class="home-btn" id="homeBtn"><i class="fas fa-arrow-left"></i><span class="btn-label"> Home</span></a>
             </div>
 
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
                     <div class="avatar"><i class="fas fa-robot"></i></div>
                     <div class="bubble">
-                        <strong>⚡ SureCargo Intelligent Assistant</strong><br />
-                        I'm here to help with egg tray bookings, real-time tracking (Reverb), GCash/COD payments, registration, and more.<br />
+                        <strong>🚚 SureCargo Intelligent Assistant</strong><br />
+                        I'm here to help with egg tray bookings, real-time tracking, GCash/COD payments, registration, and more.<br />
                         Ask me anything or click a question from the sidebar!
                     </div>
                 </div>
@@ -1738,10 +1723,6 @@ body::-webkit-scrollbar,
         </div>
     </div>
 
-    <!-- SIDEBAR TOGGLE (FLOATING) -->
-    <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle sidebar">
-        <i class="fas fa-bars"></i>
-    </button>
     <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
     <!-- ===== SCRIPTS ===== -->
@@ -1750,101 +1731,7 @@ body::-webkit-scrollbar,
             'use strict';
 
             // ============================================================
-            // 0. AUDIO SYSTEM - Click sounds on all interactive elements
-            // ============================================================
-            (function() {
-                var bgAudio = document.getElementById('bgAudio');
-                var clickAudio = document.getElementById('clickAudio');
-
-                // --- Background audio ---
-                if (bgAudio) {
-                    bgAudio.volume = 0.5;
-                    var audioStarted = false;
-
-                    function startBackgroundAudio() {
-                        if (audioStarted) return;
-                        bgAudio.play().then(function() {
-                            audioStarted = true;
-                        }).catch(function() {});
-                    }
-
-                    startBackgroundAudio();
-
-                    window.addEventListener('load', function() {
-                        setTimeout(function() {
-                            if (!audioStarted) startBackgroundAudio();
-                        }, 500);
-                    });
-
-                    function mobileAutoplayHandler() {
-                        if (!audioStarted) {
-                            startBackgroundAudio();
-                        }
-                        if (audioStarted) {
-                            document.removeEventListener('click', mobileAutoplayHandler);
-                            document.removeEventListener('touchstart', mobileAutoplayHandler);
-                            document.removeEventListener('scroll', mobileAutoplayHandler);
-                            document.removeEventListener('keydown', mobileAutoplayHandler);
-                        }
-                    }
-
-                    document.addEventListener('click', mobileAutoplayHandler);
-                    document.addEventListener('touchstart', mobileAutoplayHandler);
-                    document.addEventListener('scroll', mobileAutoplayHandler);
-                    document.addEventListener('keydown', mobileAutoplayHandler);
-
-                    window.addEventListener('beforeunload', function() {
-                        if (bgAudio) {
-                            try {
-                                sessionStorage.setItem('bgAudioTime', bgAudio.currentTime);
-                                sessionStorage.setItem('bgAudioPlaying', !bgAudio.paused ? 'true' : 'false');
-                            } catch (e) {}
-                        }
-                    });
-
-                    window.addEventListener('load', function() {
-                        try {
-                            var savedTime = sessionStorage.getItem('bgAudioTime');
-                            var wasPlaying = sessionStorage.getItem('bgAudioPlaying');
-                            if (savedTime && bgAudio) {
-                                bgAudio.currentTime = parseFloat(savedTime);
-                            }
-                            if (wasPlaying === 'true' && bgAudio && audioStarted) {
-                                bgAudio.play().catch(function() {});
-                            }
-                            sessionStorage.removeItem('bgAudioTime');
-                            sessionStorage.removeItem('bgAudioPlaying');
-                        } catch (e) {}
-                    });
-                }
-
-                // --- Click sound on ALL interactive elements ---
-                function playClick() {
-                    if (clickAudio) {
-                        clickAudio.currentTime = 0;
-                        clickAudio.play().catch(function() {});
-                    }
-                }
-
-                document.addEventListener('click', function(e) {
-                    var target = e.target.closest('a, button, .btn-primary-custom, .btn-outline-light-custom, .btn-outline-secondary, .menu-icon, .nav-links a, .home-btn, .sidebar-toggle-btn, .sidebar-close-btn, .quick-question, .tech-badge, .card-flat');
-                    if (target) {
-                        if (target.closest('#bgAudio') || target.closest('#clickAudio')) {
-                            return;
-                        }
-                        playClick();
-                        if (bgAudio && !audioStarted) {
-                            startBackgroundAudio();
-                        }
-                    }
-                });
-
-                window.__bgAudio = bgAudio;
-                window.__clickAudio = clickAudio;
-            })();
-
-            // ============================================================
-            // 1.  PRELOADER – robust asset detection
+            // PRELOADER
             // ============================================================
             const preloader = document.getElementById('preloader');
             let preloaderHidden = false;
@@ -1858,9 +1745,8 @@ body::-webkit-scrollbar,
                 });
             }
 
-            // Count assets that need to load
             let loadedCount = 0;
-            const totalAssets = 3; // fonts, FA, BS
+            const totalAssets = 3;
 
             function assetLoaded() {
                 loadedCount++;
@@ -1869,55 +1755,31 @@ body::-webkit-scrollbar,
                 }
             }
 
-            // Helper to attach load/error events to a link element
-            function trackLink(link, name) {
-                if (!link) {
-                    assetLoaded();
-                    return;
-                }
-
+            function trackLink(link) {
+                if (!link) { assetLoaded(); return; }
                 let loaded = false;
                 function onLoad() {
                     if (loaded) return;
                     loaded = true;
                     assetLoaded();
                 }
-
-                // Listen for load/error events
                 link.addEventListener('load', onLoad);
                 link.addEventListener('error', onLoad);
-
-                // If the stylesheet is already available, assume it's loaded
-                if (link.sheet) {
-                    // Short delay to avoid double‑counting if the load event fires soon
-                    setTimeout(onLoad, 100);
-                }
-
-                // Safety fallback: mark as loaded after 3 seconds
+                if (link.sheet) setTimeout(onLoad, 100);
                 setTimeout(onLoad, 3000);
             }
 
-            // Font Awesome
-            const faLink = document.querySelector('link[href*="font-awesome"]');
-            trackLink(faLink, 'fontawesome');
+            trackLink(document.querySelector('link[href*="font-awesome"]'));
+            trackLink(document.querySelector('link[href*="bootstrap.min.css"]'));
 
-            // Bootstrap CSS (also loads Bootstrap Icons via the same link)
-            const bsLink = document.querySelector('link[href*="bootstrap.min.css"]');
-            trackLink(bsLink, 'bootstrap');
-
-            // Web fonts
             if (document.fonts) {
                 document.fonts.ready.then(assetLoaded).catch(assetLoaded);
-                // Fallback: if fonts don't load within 4s, proceed
                 setTimeout(assetLoaded, 4000);
             } else {
                 assetLoaded();
             }
 
-            // Overall safety: hide preloader after 5s max
             setTimeout(hidePreloader, 5000);
-
-            // Also on window load (for any remaining images)
             if (document.readyState === 'complete') {
                 setTimeout(hidePreloader, 300);
             } else {
@@ -1927,265 +1789,10 @@ body::-webkit-scrollbar,
             }
 
             // ============================================================
-            // 2.  IMAGE SKELETON LOADING (MutationObserver)
-            // ============================================================
-            function wrapImageWithSkeleton(img) {
-                if (img.dataset.skeletonWrapped) return;
-                img.dataset.skeletonWrapped = '1';
-
-                const parent = img.parentNode;
-                if (!parent) return;
-                if (parent.classList.contains('img-skeleton')) return;
-
-                const wrapper = document.createElement('span');
-                wrapper.className = 'img-skeleton';
-                const shimmer = document.createElement('span');
-                shimmer.className = 'skeleton-shimmer';
-
-                parent.insertBefore(wrapper, img);
-                wrapper.appendChild(img);
-                wrapper.appendChild(shimmer);
-
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', function() {
-                        this.classList.add('loaded');
-                    });
-                    img.addEventListener('error', function() {
-                        this.classList.add('loaded');
-                    });
-                }
-            }
-
-            function observeImages() {
-                document.querySelectorAll('img:not([data-skeleton-wrapped])').forEach(wrapImageWithSkeleton);
-                const observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mut) {
-                        if (mut.type === 'childList') {
-                            mut.addedNodes.forEach(function(node) {
-                                if (node.nodeType === 1) {
-                                    if (node.tagName === 'IMG') {
-                                        wrapImageWithSkeleton(node);
-                                    } else {
-                                        node.querySelectorAll('img:not([data-skeleton-wrapped])')
-                                            .forEach(wrapImageWithSkeleton);
-                                    }
-                                }
-                            });
-                        }
-                    });
-                });
-                observer.observe(document.body, { childList: true, subtree: true });
-                return observer;
-            }
-            observeImages();
-
-            // ============================================================
-            // 3.  ICON SKELETON LOADING
-            // ============================================================
-            function wrapIconWithSkeleton(el) {
-                if (el.dataset.iconSkeletonWrapped) return;
-                el.dataset.iconSkeletonWrapped = '1';
-
-                const hasIcon = el.classList.contains('fa') ||
-                    el.classList.contains('fas') ||
-                    el.classList.contains('far') ||
-                    el.classList.contains('fal') ||
-                    el.classList.contains('fab') ||
-                    el.classList.contains('bi') ||
-                    el.classList.contains('fa-solid') ||
-                    el.classList.contains('fa-regular') ||
-                    el.classList.contains('fa-brands') ||
-                    el.tagName === 'svg';
-
-                if (!hasIcon) return;
-
-                el.classList.add('icon-skeleton');
-                const shimmer = document.createElement('span');
-                shimmer.className = 'skeleton-shimmer';
-                el.appendChild(shimmer);
-
-                const checkIcon = function() {
-                    const hasContent = el.textContent.trim().length > 0 ||
-                        el.querySelector('svg') !== null ||
-                        el.querySelector('path') !== null ||
-                        el.querySelector('use') !== null;
-                    const computed = getComputedStyle(el);
-                    const fontFamily = computed.fontFamily || '';
-                    const isIconFont = fontFamily.includes('Font Awesome') ||
-                        fontFamily.includes('bootstrap-icons') ||
-                        fontFamily.includes('FontAwesome');
-
-                    if (hasContent || isIconFont) {
-                        el.classList.add('loaded');
-                        return true;
-                    }
-                    return false;
-                };
-
-                if (!checkIcon()) {
-                    let attempts = 0;
-                    const maxAttempts = 8;
-                    const interval = setInterval(function() {
-                        attempts++;
-                        if (checkIcon() || attempts >= maxAttempts) {
-                            clearInterval(interval);
-                            if (attempts >= maxAttempts) {
-                                el.classList.add('loaded');
-                            }
-                        }
-                    }, 300);
-                }
-            }
-
-            function observeIcons() {
-                document.querySelectorAll('i, svg, .bi, .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands')
-                    .forEach(wrapIconWithSkeleton);
-
-                const observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mut) {
-                        if (mut.type === 'childList') {
-                            mut.addedNodes.forEach(function(node) {
-                                if (node.nodeType === 1) {
-                                    if (node.matches && node.matches(
-                                            'i, svg, .bi, .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands'
-                                            )) {
-                                        wrapIconWithSkeleton(node);
-                                    } else {
-                                        node.querySelectorAll(
-                                            'i, svg, .bi, .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands'
-                                        ).forEach(wrapIconWithSkeleton);
-                                    }
-                                }
-                            });
-                        }
-                    });
-                });
-                observer.observe(document.body, { childList: true, subtree: true });
-                return observer;
-            }
-            observeIcons();
-
-            // ============================================================
-            // 4.  BUTTON LOADING STATES
-            // ============================================================
-            const loadingButtons = new Set();
-
-            function setButtonLoading(btn, loading) {
-                if (!btn) return;
-                if (loading) {
-                    if (loadingButtons.has(btn)) return;
-                    loadingButtons.add(btn);
-
-                    const originalHtml = btn.innerHTML;
-                    btn.dataset.originalHtml = originalHtml;
-                    btn.classList.add('btn-loading');
-                    btn.innerHTML =
-                        '<span class="btn-spinner" aria-hidden="true"></span><span class="btn-text">Please wait...</span>';
-                    btn.disabled = true;
-                } else {
-                    if (!loadingButtons.has(btn)) return;
-                    loadingButtons.delete(btn);
-                    btn.classList.remove('btn-loading');
-                    if (btn.dataset.originalHtml) {
-                        btn.innerHTML = btn.dataset.originalHtml;
-                        delete btn.dataset.originalHtml;
-                    }
-                    btn.disabled = false;
-                }
-            }
-
-            function handleClickableClick(e) {
-                const target = e.currentTarget;
-                if (loadingButtons.has(target)) return;
-                if (target.disabled) return;
-                if (target.dataset.noLoading === 'true') return;
-
-                const isNavLink = target.tagName === 'A' && target.getAttribute('href') &&
-                    !target.getAttribute('href').startsWith('#') &&
-                    !target.getAttribute('href').startsWith('javascript:');
-
-                setButtonLoading(target, true);
-
-                if (isNavLink) {
-                    const timeout = setTimeout(function() {
-                        setButtonLoading(target, false);
-                    }, 3000);
-
-                    window.addEventListener('beforeunload', function() {
-                        clearTimeout(timeout);
-                        setButtonLoading(target, false);
-                    }, { once: true });
-
-                    setTimeout(function() {
-                        if (loadingButtons.has(target)) {
-                            setButtonLoading(target, false);
-                        }
-                    }, 4000);
-                } else {
-                    setTimeout(function() {
-                        setButtonLoading(target, false);
-                    }, 2000);
-                }
-            }
-
-            function attachLoadingListeners() {
-                const selectors = [
-                    'button:not([data-no-loading="true"])',
-                    'a:not([data-no-loading="true"])',
-                    '[role="button"]:not([data-no-loading="true"])',
-                    '.btn:not([data-no-loading="true"])',
-                    '.card:not([data-no-loading="true"])',
-                    '.quick-question',
-                    '.sidebar-toggle-btn',
-                    '.sidebar-close-btn',
-                    '.home-btn',
-                    '#sendBtn'
-                ];
-
-                document.querySelectorAll(selectors.join(',')).forEach(function(el) {
-                    if (el.dataset.loadingHandlerAttached) return;
-                    el.dataset.loadingHandlerAttached = 'true';
-                    el.addEventListener('click', handleClickableClick);
-                });
-
-                const observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mut) {
-                        if (mut.type === 'childList') {
-                            mut.addedNodes.forEach(function(node) {
-                                if (node.nodeType === 1) {
-                                    if (node.matches && node.matches(selectors.join(','))) {
-                                        if (!node.dataset.loadingHandlerAttached) {
-                                            node.dataset.loadingHandlerAttached = 'true';
-                                            node.addEventListener('click', handleClickableClick);
-                                        }
-                                    } else {
-                                        node.querySelectorAll(selectors.join(',')).forEach(
-                                        function(el) {
-                                            if (!el.dataset.loadingHandlerAttached) {
-                                                el.dataset.loadingHandlerAttached =
-                                                'true';
-                                                el.addEventListener('click',
-                                                    handleClickableClick);
-                                            }
-                                        });
-                                    }
-                                }
-                            });
-                        }
-                    });
-                });
-                observer.observe(document.body, { childList: true, subtree: true });
-                return observer;
-            }
-            attachLoadingListeners();
-
-            // ============================================================
-            // 5.  SIDEBAR TOGGLE – always clickable
+            // SIDEBAR TOGGLE
             // ============================================================
             const sidebar = document.getElementById('questionsSidebar');
-            const toggleBtn = document.getElementById('sidebarToggleBtn');
+            const mobileHamburger = document.getElementById('mobileHamburger');
             const closeBtn = document.getElementById('sidebarCloseBtn');
             const backdrop = document.getElementById('sidebarBackdrop');
 
@@ -2209,12 +1816,11 @@ body::-webkit-scrollbar,
                 }
             }
 
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', function(e) {
+            if (mobileHamburger) {
+                mobileHamburger.addEventListener('click', function(e) {
                     e.stopPropagation();
                     toggleSidebar();
                 });
-                toggleBtn.style.pointerEvents = 'auto';
             }
             if (closeBtn) {
                 closeBtn.addEventListener('click', function(e) {
@@ -2236,7 +1842,7 @@ body::-webkit-scrollbar,
             });
 
             // ============================================================
-            // 6.  CHAT FUNCTIONALITY
+            // CHAT FUNCTIONALITY
             // ============================================================
             const chatMessages = document.getElementById('chatMessages');
             const userInput = document.getElementById('userInput');
@@ -2307,37 +1913,10 @@ body::-webkit-scrollbar,
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
 
-            function getSureCargoFallback(userMessage) {
-                const msg = userMessage.toLowerCase();
-                if (msg.match(/register|sign up|create account|registration|how to join|new account/i)) {
-                    return "📝 <strong>How to register on SureCargo:</strong><br>• Visit the Register page (link on login/home).<br>• Step 1: Enter First Name & Last Name.<br>• Step 2: Select your City (Bantayan or Bacolod) and User Type (Poultry Owner or Customer).<br>• Create a strong password: minimum 8 characters, including uppercase, lowercase, number, and special character (@$!%*?&).<br>• Confirm your password.<br>• Step 3: Provide a valid 11-digit mobile number starting with 09 (e.g., 09123456789).<br>• Click Register → you'll receive a 6-digit OTP via SMS for verification.<br>• Enter OTP to complete registration, then log in to start booking!";
-                }
-                if (msg.match(/book|booking|how to book|reserve/i)) {
-                    if (msg.match(/step|process|how/i)) {
-                        return "📋 Booking Steps:<br>1. Dashboard → select AVAILABLE truck<br>2. Enter quantity, pickup, receiver, drop-off<br>3. Submit → wait admin approval<br>4. Pay via GCash (upload ref) or COD<br>5. Track live when 'in_transit'";
-                    }
-                    return "To book, go to Dashboard, pick a truck with available capacity, fill the form, and submit. Admin confirms within 24h.";
-                }
-                if (msg.match(/track|live|gps|location|real-time/i)) {
-                    return "📍 Live Tracking: When booking status becomes 'in_transit', a 'Track' button appears in My Bookings. Click it to see the driver's live GPS on a map (Leaflet + Reverb WebSockets).";
-                }
-                if (msg.match(/pay|gcash|payment|gcash|qr code|cod|bayad/i)) {
-                    if (msg.includes('gcash')) return "💚 GCash: After confirmation, go to My Bookings → Pay → choose GCash. Scan QR, send exact amount, upload reference number. Admin verifies within 24h.";
-                    if (msg.includes('cod')) return "🚚 COD: Select Cash on Delivery at checkout, provide your full name. Pay exact cash when driver delivers.";
-                    return "SureCargo accepts GCash (upload reference) and Cash on Delivery. Both secure.";
-                }
-                if (msg.match(/capacity|max trays|limit/i)) return "🚛 Each truck holds 12000 egg trays. Dashboard shows 'Available Egg Trays' in real-time.";
-                if (msg.match(/edit|modify|update booking/i)) return "✏️ You can edit a booking only while status is 'pending'. Go to My Bookings → Edit.";
-                if (msg.match(/cancel|refund/i)) return "❌ Cancel: Pending bookings can be cancelled from My Bookings. For confirmed bookings, contact support. GCash refunds take 3-5 days.";
-                if (msg.match(/profile|update profile|change password/i)) return "👤 Profile: Click Profile in sidebar → update photo, mobile, city, user type. Change password with current verification.";
-                if (msg.match(/support|help|contact/i)) return "📞 Support: Email support@surecargo.com | Hotline +1 (800) 555-1234 | In-app chat with admin.";
-                if (msg.match(/about|what is surecargo|platform/i)) return "🚚 SureCargo is a logistics platform specialized in egg tray transportation, offering real-time tracking, digital payments (GCash/COD), and seamless booking management.";
-                if (msg.match(/hello|hi|hey|maayong|kumusta|good morning/i)) return "👋 Maayong adlaw! I'm SureCargo AI. Ask me about registrations, bookings, tracking, payments, or account updates.";
-                if (msg.match(/thank|salamat|thanks/i)) return "😊 You're welcome! Safe shipping and happy tracking! Anything else?";
-                return "🤖 I can help with: Registration, booking steps, live tracking, GCash/COD payments, profile updates, and support info. Please rephrase or click a quick question.";
-            }
-
-            async function callPuterAI(userMessage) {
+            // ============================================================
+            // AI SERVICE - Try backend API first, fallback to local responses
+            // ============================================================
+            async function callAI(userMessage) {
                 try {
                     const response = await fetch('/api/chat-ai', {
                         method: 'POST',
@@ -2347,40 +1926,59 @@ body::-webkit-scrollbar,
                         },
                         body: JSON.stringify({ message: userMessage })
                     });
+
                     if (!response.ok) throw new Error('HTTP ' + response.status);
                     const data = await response.json();
-                    if (data.reply && data.reply.trim()) return data.reply;
+                    if (data.reply && data.reply.trim()) {
+                        return data.reply;
+                    }
                     throw new Error('Empty reply');
                 } catch (error) {
-                    console.warn('Puter AI failed, using fallback:', error);
+                    console.warn('Backend AI failed:', error);
                     return null;
                 }
             }
 
+            // ============================================================
+            // SEND MESSAGE
+            // ============================================================
             async function sendMessage(messageOverride) {
                 const rawMessage = (messageOverride !== null && messageOverride !== undefined) ? messageOverride :
                     userInput.value.trim();
                 if (!rawMessage) return;
 
-                setButtonLoading(sendBtn, true);
+                sendBtn.disabled = true;
+                sendBtn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span>';
 
                 addMessage('user', rawMessage, true);
                 if (messageOverride === null || messageOverride === undefined) userInput.value = '';
                 else userInput.value = '';
 
                 showTyping();
-                let aiReply = await callPuterAI(rawMessage);
-                if (!aiReply) aiReply = getSureCargoFallback(rawMessage);
+
+                let aiReply = null;
+
+                // Try backend API first
+                aiReply = await callAI(rawMessage);
+
+                // If backend fails, use fallback
+                if (!aiReply) {
+                    // The backend already has fallback, but just in case
+                    aiReply = "I'm having trouble connecting to my AI service. Please try again in a moment, or ask me about bookings, registration, tracking, or payments!";
+                }
+
                 removeTyping();
                 addMessage('bot', aiReply, false);
 
-                setButtonLoading(sendBtn, false);
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
             }
 
+            // Event listeners
             if (sendBtn) {
                 sendBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    if (loadingButtons.has(sendBtn)) return;
+                    if (sendBtn.disabled) return;
                     sendMessage();
                 });
             }
@@ -2389,7 +1987,7 @@ body::-webkit-scrollbar,
                 userInput.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
                         e.preventDefault();
-                        if (loadingButtons.has(sendBtn)) return;
+                        if (sendBtn.disabled) return;
                         sendMessage();
                     }
                 });
@@ -2397,7 +1995,7 @@ body::-webkit-scrollbar,
             }
 
             // ============================================================
-            // 7.  POPULATE SIDEBAR QUESTIONS
+            // POPULATE SIDEBAR QUESTIONS
             // ============================================================
             const questions = [
                 "📦 How do I book a truck?",
@@ -2405,21 +2003,23 @@ body::-webkit-scrollbar,
                 "📍 How does real-time tracking work?",
                 "💳 What payment methods are accepted?",
                 "🧾 How to pay via GCash QR?",
-                "🚛 What is the maximum capacity per truck?",
+                "🚛 What is the max capacity per truck?",
                 "✏️ Can I edit my booking after confirmation?",
                 "❌ How to cancel a booking?",
                 "⏱️ How long does admin confirmation take?",
                 "📊 Where can I see my booking history?",
-                "📱 Is there a mobile app?",
+                "🛣️ What routes does SureCargo cover?",
                 "🔄 What does 'in_transit' status mean?",
                 "💰 How is the total amount calculated?",
                 "🔔 Will I receive notifications?",
                 "🧑‍💼 How to update my profile?",
                 "📞 Support contact?",
                 "🧾 What is COD & how does it work?",
-                "🛣️ Which cities does SureCargo cover?",
+                "👥 Who are the truck personnel?",
                 "📦 Egg tray quantity limits?",
-                "🔄 Booking reference lookup?"
+                "💬 How does user-to-user messaging work?",
+                "📢 Where can I view announcements?",
+                "🔧 How to submit a damage request?"
             ];
 
             const sidebarList = document.getElementById('questionsList');
@@ -2436,13 +2036,16 @@ body::-webkit-scrollbar,
                     else if (q.includes("❌")) iconHtml = '<i class="fas fa-ban"></i>';
                     else if (q.includes("⏱️")) iconHtml = '<i class="fas fa-clock"></i>';
                     else if (q.includes("📊")) iconHtml = '<i class="fas fa-chart-line"></i>';
-                    else if (q.includes("📱")) iconHtml = '<i class="fas fa-mobile-alt"></i>';
+                    else if (q.includes("🛣️")) iconHtml = '<i class="fas fa-road"></i>';
                     else if (q.includes("🔄")) iconHtml = '<i class="fas fa-sync-alt"></i>';
                     else if (q.includes("💰")) iconHtml = '<i class="fas fa-calculator"></i>';
                     else if (q.includes("🔔")) iconHtml = '<i class="fas fa-bell"></i>';
                     else if (q.includes("🧑‍💼")) iconHtml = '<i class="fas fa-user-edit"></i>';
                     else if (q.includes("📞")) iconHtml = '<i class="fas fa-headset"></i>';
-                    else if (q.includes("🛣️")) iconHtml = '<i class="fas fa-city"></i>';
+                    else if (q.includes("👥")) iconHtml = '<i class="fas fa-users"></i>';
+                    else if (q.includes("💬")) iconHtml = '<i class="fas fa-comment-dots"></i>';
+                    else if (q.includes("📢")) iconHtml = '<i class="fas fa-bullhorn"></i>';
+                    else if (q.includes("🔧")) iconHtml = '<i class="fas fa-tools"></i>';
                     else if (q.includes("📝")) iconHtml = '<i class="fas fa-user-plus"></i>';
                     else iconHtml = '<i class="fas fa-question-circle"></i>';
 
@@ -2458,7 +2061,7 @@ body::-webkit-scrollbar,
             }
 
             // ============================================================
-            // 8.  CLEAN WELCOME MESSAGE
+            // CLEAN WELCOME MESSAGE
             // ============================================================
             const initialBotBubble = document.querySelector('.message.bot .bubble');
             if (initialBotBubble) {
@@ -2466,7 +2069,7 @@ body::-webkit-scrollbar,
             }
 
             // ============================================================
-            // 9.  RESIZE HANDLER – close sidebar on desktop
+            // RESIZE HANDLER
             // ============================================================
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 860 && sidebar && sidebar.classList.contains('open')) {
@@ -2477,14 +2080,7 @@ body::-webkit-scrollbar,
                 }
             });
 
-            // ============================================================
-            // 10. ENSURE SIDEBAR TOGGLE IS NEVER BLOCKED
-            // ============================================================
-            if (toggleBtn) {
-                toggleBtn.style.position = 'fixed';
-                toggleBtn.style.pointerEvents = 'auto';
-                toggleBtn.style.zIndex = '1060';
-            }
+            console.log('✅ Chatbot initialized with backend API + fallback');
 
         })();
     </script>
