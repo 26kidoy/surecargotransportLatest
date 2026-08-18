@@ -32,6 +32,8 @@ use App\Http\Controllers\TrackValidateController;
 use App\Http\Controllers\UserRequestController as PublicUserRequestController;
 use App\Http\Controllers\Admin\UserRequestController as AdminUserRequestController;
 
+
+Route::post('/api/chat-ai', [ChatbotController::class, 'chat']);
 // ============================================================
 // PUBLIC ROUTES - No authentication required
 // ============================================================
@@ -54,77 +56,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/find', [MapController::class, 'showFind'])->name('find');
 Route::get('/chatbot', [ChatbotController::class, 'index'])->name('chatbot');
 
-Route::post('/api/chat-ai', function (Request $request) {
-    $userMessage = $request->input('message');
 
-    $systemPrompt = "
-You are SureCargo AI, an expert assistant for the SureCargo egg tray transport system.
-
-IMPORTANT RULES:
-- Respond in the same language as the user (English, Tagalog, Bisaya).
-- Keep answers concise, friendly, and under 200 words.
-- Use bullet points for steps.
-- Never make up features; if unsure, say 'I will connect you with support'.
-
-KNOWLEDGE BASE:
-
-1. BOOKING:
-   - Go to Dashboard → choose an AVAILABLE truck → fill in quantity (egg trays), pickup address, receiver name/phone, drop-off location.
-   - Admin approval takes up to 24 hours. Status becomes 'confirmed'.
-   - Only 'pending' bookings can be edited or cancelled.
-
-2. PAYMENT:
-   - GCash: After confirmation, click 'Pay' → scan QR → send exact amount → upload reference number. Admin verifies → status 'approve'.
-   - COD (Cash on Delivery): Select COD at booking, provide full name. Pay exact cash upon delivery.
-
-3. TRACKING:
-   - When status changes to 'in_transit', a 'Track' button appears in My Bookings.
-   - Uses Reverb WebSockets + Leaflet maps to show driver GPS live.
-
-4. TRUCK CAPACITY:
-   - Each truck holds 800 to 1,500 egg trays. Dashboard shows 'Available Egg Trays' in real-time.
-
-5. DRIVER MESSAGING:
-   - Go to 'Messages' in sidebar → chat with assigned driver or admin.
-
-6. PROFILE:
-   - Update photo, mobile number, city, user type, or password via Profile page.
-
-7. SUPPORT:
-   - Email: support@surecargo.com | Hotline: +1 (800) 555-1234 | In-app chat with admin.
-
-8. CAPSTONE:
-   - Developed by 3rd year IT students, Madridejos Community College. Tech: Laravel 13, Reverb, MySQL.
-
-Always offer further help.
-";
-
-    try {
-        $response = Http::withToken(env('PUTER_AUTH_TOKEN'))
-            ->timeout(15)
-            ->post('https://api.puter.com/puterai/openai/v1/chat/completions', [
-                'model' => 'gpt-4o-mini',
-                'messages' => [
-                    ['role' => 'system', 'content' => $systemPrompt],
-                    ['role' => 'user', 'content' => $userMessage]
-                ],
-                'temperature' => 0.7,
-                'max_tokens' => 500,
-            ]);
-
-        if ($response->successful()) {
-            return response()->json([
-                'reply' => $response->json('choices.0.message.content')
-            ]);
-        }
-
-        \Log::error('Puter AI error', ['status' => $response->status(), 'body' => $response->body()]);
-        return response()->json(['error' => 'AI unavailable'], 500);
-    } catch (\Exception $e) {
-        \Log::error('Puter AI exception: ' . $e->getMessage());
-        return response()->json(['error' => 'Connection failed'], 500);
-    }
-})->middleware('web');
 
 // ============================================================
 // AUTH ROUTES
@@ -253,7 +185,7 @@ Route::get('/api/truck/{id}', [BookingController::class, 'getTruckDetails']);
 Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('announcements', App\Http\Controllers\Admin\AnnouncementController::class);
-    
+
     // ========== MFA CHALLENGE ROUTES (NO AUTH REQUIRED) ==========
     Route::get('mfa/challenge', [MfaController::class, 'showChallengeForm'])->name('mfa.challenge');
     Route::post('mfa/verify', [MfaController::class, 'verifyOtp'])->name('mfa.verify');
@@ -278,11 +210,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // ============================================================
     // USER REQUESTS ROUTES - CORRECT ORDER (STATIC ROUTES FIRST!)
     // ============================================================
-    
+
     // Index & Store (no {parameter} so these are safe)
     Route::get('user-requests', [AdminUserRequestController::class, 'index'])->name('user-requests.index');
     Route::post('user-requests', [AdminUserRequestController::class, 'store'])->name('user-requests.store');
-    
+
     // ========== STATIC ROUTES FIRST (BEFORE {userRequest}) ==========
     // These routes MUST come before the dynamic {userRequest} route
     Route::post('user-requests/update-secret', [AdminUserRequestController::class, 'updateSecret'])->name('user-requests.update-secret');
@@ -291,7 +223,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('user-requests/send-to-all', [AdminUserRequestController::class, 'sendToAllUsers'])->name('user-requests.send-to-all');
     Route::post('user-requests/bulk-approve', [AdminUserRequestController::class, 'bulkApprove'])->name('user-requests.bulk-approve');
     Route::post('user-requests/bulk-reject', [AdminUserRequestController::class, 'bulkReject'])->name('user-requests.bulk-reject');
-    
+
     // ========== DYNAMIC ROUTES LAST (WITH {userRequest}) ==========
     Route::get('user-requests/{userRequest}', [AdminUserRequestController::class, 'show'])->name('user-requests.show');
     Route::delete('user-requests/{userRequest}', [AdminUserRequestController::class, 'destroy'])->name('user-requests.destroy');
@@ -309,7 +241,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['admin', \App\Http\Middleware\EnsureAdminMfaEnabled::class])->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
-        
+
         // Resource controllers
         Route::resource('trucks', TruckController::class)->parameters(['trucks' => 'truck']);
         Route::resource('users', UserController::class)->parameters(['users' => 'user']);
@@ -399,7 +331,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/damage-requests', [DamageRequestController::class, 'index'])->name('damage-requests.index');
-    
+
     // API routes for authenticated users
     Route::get('/api/payment-methods/active', [PaymentController::class, 'getActiveMethods']);
     Route::get('/api/users', [MessageController::class, 'getUsers']);
