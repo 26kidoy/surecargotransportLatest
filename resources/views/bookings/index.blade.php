@@ -2,84 +2,86 @@
 
 @section('content')
 <div class="p-2 p-md-4 p-lg-5">
-    <div class="row g-2 g-lg-4">
-        <!-- Left Column: Filters (Sticky) -->
-        <div class="col-lg-5">
-            <div class="card border-0 shadow-lg rounded-4 bg-white sticky-top-custom">
-                <div class="card-body p-2 p-md-4 p-lg-5">
-                    <!-- Status tabs: horizontal scroll -->
-                    <div class="status-tabs-wrapper" id="statusTabs">
-                        <button class="btn status-tab active" data-status="all">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5"/></svg>
-                            All <span class="status-count-badge">0</span>
-                        </button>
-                        <button class="btn status-tab" data-status="pending">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-linecap="round"/></svg>
-                            Pending <span class="status-count-badge">0</span>
-                        </button>
-                        <button class="btn status-tab" data-status="confirmed">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Confirmed <span class="status-count-badge">0</span>
-                        </button>
-                        <button class="btn status-tab" data-status="in_transit">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15h18M5 9h14M7 3h10M5 21h2M17 21h2" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="18" r="2" fill="currentColor"/><circle cx="17" cy="18" r="2" fill="currentColor"/></svg>
-                            In Transit <span class="status-count-badge">0</span>
-                        </button>
-                        <button class="btn status-tab" data-status="delivered">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="1.5"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-linecap="round"/></svg>
-                            Delivered <span class="status-count-badge">0</span>
-                        </button>
-                        <button class="btn status-tab" data-status="cancelled">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.5"/></svg>
-                            Cancelled <span class="status-count-badge">0</span>
-                        </button>
-                    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-10 col-xxl-9 g-2 g-lg-4">
+            <!-- Filters Card - Full Width -->
+            <div class="col-12">
+                <div class="card border-0 shadow-lg rounded-4 bg-white">
+                    <div class="card-body p-2 p-md-4 p-lg-5">
+                        <!-- Status tabs: horizontally scrollable -->
+                        <div class="status-tabs-wrapper" id="statusTabs">
+                            <button class="btn status-tab active" data-status="all">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5"/></svg>
+                                All <span class="status-count-badge">0</span>
+                            </button>
+                            <button class="btn status-tab" data-status="pending">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-linecap="round"/></svg>
+                                Pending <span class="status-count-badge">0</span>
+                            </button>
+                            <button class="btn status-tab" data-status="confirmed">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Confirmed <span class="status-count-badge">0</span>
+                            </button>
+                            <button class="btn status-tab" data-status="in_transit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15h18M5 9h14M7 3h10M5 21h2M17 21h2" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="18" r="2" fill="currentColor"/><circle cx="17" cy="18" r="2" fill="currentColor"/></svg>
+                                In Transit <span class="status-count-badge">0</span>
+                            </button>
+                            <button class="btn status-tab" data-status="delivered">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="1.5"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-linecap="round"/></svg>
+                                Delivered <span class="status-count-badge">0</span>
+                            </button>
+                            <button class="btn status-tab" data-status="cancelled">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.5"/></svg>
+                                Cancelled <span class="status-count-badge">0</span>
+                            </button>
+                        </div>
 
-                    <!-- Search -->
-                    <div class="input-group input-group-lg mt-3">
-                        <span class="input-group-text bg-transparent border-end-0">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="stroke: #0a58ca;"><path d="M21 21l-4.35-4.35M19 11a8 8 0 1 0-16 0 8 8 0 0 0 16 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        </span>
-                        <input type="text" class="form-control border-start-0 ps-0" id="searchBooking" placeholder="Search by ref, truck, receiver...">
+                        <!-- Search - centered -->
+                        <div class="input-group input-group-lg mt-3 mx-auto" style="max-width: 600px;">
+                            <span class="input-group-text bg-transparent border-end-0">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="stroke: #0a58ca;"><path d="M21 21l-4.35-4.35M19 11a8 8 0 1 0-16 0 8 8 0 0 0 16 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0 ps-0" id="searchBooking" placeholder="Search by ref, truck, receiver...">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Right Column: Bookings List -->
-        <div class="col-lg-7">
-            <div class="card border-0 shadow-lg rounded-4 bg-white">
-                <div class="card-header bg-white border-0 p-2 p-md-4 p-lg-5 pb-0 d-flex justify-content-between align-items-center flex-wrap gap-2">
-                    <h3 class="fw-bold text-dark mb-0" style="font-size: clamp(1.1rem, 2.5vw, 1.8rem);">
-                        <svg class="me-2 text-primary icon-inline" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5"/>
-                        </svg>
-                        My Bookings
-                    </h3>
-                    <button class="btn btn-outline-secondary btn-lg px-2 px-md-4 py-1 py-md-2" id="refreshBookingsBtn" style="font-size: clamp(0.75rem, 1.2vw, 1rem);">
-                        <svg class="me-1 icon-inline" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23 4V10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M1 20V14H7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M3.51 9C5.73 5.46 9.62 3 14 3C19.24 3 23.34 6.71 23.86 11.81" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M20.49 15C18.27 18.54 14.38 21 10 21C4.76 21 0.66 17.29 0.14 12.19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                        Refresh
-                    </button>
-                </div>
-                <div class="card-body p-2 p-md-4 p-lg-5">
-                    <!-- Bookings Grid -->
-                    <div class="bookings-grid" id="bookingsGrid">
-                        <div class="text-center py-5" id="loadingIndicator">
-                            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
-                            <p class="mt-3 fw-semibold" style="font-size: clamp(1rem, 2vw, 1.5rem);">Loading bookings...</p>
-                        </div>
+            <!-- Right Column: Bookings List -->
+            <div class="col-12 mt-3 mt-lg-4">
+                <div class="card border-0 shadow-lg rounded-4 bg-white">
+                    <div class="card-header bg-white border-0 p-2 p-md-4 p-lg-5 pb-0 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <h3 class="fw-bold text-dark mb-0" style="font-size: clamp(1.1rem, 2.5vw, 1.8rem);">
+                            <svg class="me-2 text-primary icon-inline" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            My Bookings
+                        </h3>
+                        <button class="btn btn-outline-secondary btn-lg px-2 px-md-4 py-1 py-md-2" id="refreshBookingsBtn" style="font-size: clamp(0.75rem, 1.2vw, 1rem);">
+                            <svg class="me-1 icon-inline" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 4V10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M1 20V14H7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M3.51 9C5.73 5.46 9.62 3 14 3C19.24 3 23.34 6.71 23.86 11.81" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20.49 15C18.27 18.54 14.38 21 10 21C4.76 21 0.66 17.29 0.14 12.19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            Refresh
+                        </button>
                     </div>
+                    <div class="card-body p-2 p-md-4 p-lg-5">
+                        <!-- Bookings Grid -->
+                        <div class="bookings-grid" id="bookingsGrid">
+                            <div class="text-center py-5" id="loadingIndicator">
+                                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
+                                <p class="mt-3 fw-semibold" style="font-size: clamp(1rem, 2vw, 1.5rem);">Loading bookings...</p>
+                            </div>
+                        </div>
 
-                    <!-- Pagination -->
-                    <div class="d-flex justify-content-between align-items-center p-2 p-lg-4 mt-3 mt-lg-5 flex-wrap gap-2 pagination-wrapper">
-                        <div class="text-muted fw-medium" id="paginationInfo" style="font-size: clamp(0.75rem, 1.2vw, 1rem);"></div>
-                        <nav><ul class="pagination mb-0" id="pagination"></ul></nav>
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-between align-items-center p-2 p-lg-4 mt-3 mt-lg-5 flex-wrap gap-2 pagination-wrapper">
+                            <div class="text-muted fw-medium" id="paginationInfo" style="font-size: clamp(0.75rem, 1.2vw, 1rem);"></div>
+                            <nav><ul class="pagination mb-0" id="pagination"></ul></nav>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -982,19 +984,23 @@
 }
 
 /* ============================================================
-   STATUS TABS
+   STATUS TABS - FIXED FOR MOBILE SCROLLING
    ============================================================ */
 .status-tabs-wrapper {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch !important;
     gap: 0.5rem !important;
     padding-bottom: 0.5rem !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
     scrollbar-width: thin !important;
     scroll-snap-type: x mandatory !important;
     width: 100% !important;
+    -ms-overflow-style: -ms-autohiding-scrollbar !important;
 }
 
 .status-tab {
@@ -1151,7 +1157,6 @@
 /* ============================================================
    PAYMENT MODAL - QR CODE RESPONSIVE FIXES
    ============================================================ */
-
 #paymentModal .modal-body,
 .payment-modal .modal-body,
 .modal-content .modal-body {
@@ -1354,6 +1359,27 @@ div[class*="payment"] {
         --sp-xl: 1.5rem;
     }
 
+    /* FIX: Ensure tabs are scrollable on mobile */
+    .status-tabs-wrapper {
+        gap: 0.4rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        margin: 0 -0.25rem !important;
+        width: calc(100% + 0.5rem) !important;
+    }
+
+    .status-tab {
+        font-size: var(--font-sm) !important;
+        padding: 0.3rem 0.8rem !important;
+        min-height: 34px !important;
+    }
+
+    .status-tab svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
     #paymentModal img[src*="qr"],
     #paymentModal img[src*="QR"],
     .payment-modal img[src*="qr"],
@@ -1378,17 +1404,6 @@ div[class*="payment"] {
     .payment-modal .qr-code-container,
     .modal-content .qr-code-container {
         padding: 0.25rem !important;
-    }
-
-    .status-tab {
-        font-size: var(--font-sm) !important;
-        padding: 0.3rem 0.8rem !important;
-        min-height: 34px !important;
-    }
-
-    .status-tab svg {
-        width: 16px !important;
-        height: 16px !important;
     }
 
     .booking-card .card-body {
@@ -1472,11 +1487,6 @@ div[class*="payment"] {
         height: 14px !important;
     }
 
-    .status-tabs-wrapper {
-        gap: 0.4rem !important;
-        padding-bottom: 0.3rem !important;
-    }
-
     .modal-dialog {
         margin: 0.5rem !important;
     }
@@ -1518,6 +1528,33 @@ div[class*="payment"] {
         --sp-xl: 1.2rem;
     }
 
+    /* FIX: Ensure tabs are scrollable on small phones */
+    .status-tabs-wrapper {
+        gap: 0.3rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        margin: 0 -0.5rem !important;
+        width: calc(100% + 1rem) !important;
+    }
+
+    .status-tab {
+        font-size: var(--font-sm) !important;
+        padding: 0.25rem 0.6rem !important;
+        min-height: 30px !important;
+        gap: 0.25rem !important;
+    }
+
+    .status-tab svg {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    .status-tab .status-count-badge {
+        font-size: var(--font-xs) !important;
+        padding: 0.05rem 0.35rem !important;
+    }
+
     #paymentModal img[src*="qr"],
     #paymentModal img[src*="QR"],
     .payment-modal img[src*="qr"],
@@ -1548,23 +1585,6 @@ div[class*="payment"] {
     .payment-modal .qr-code-container,
     .modal-content .qr-code-container {
         padding: 0.15rem !important;
-    }
-
-    .status-tab {
-        font-size: var(--font-sm) !important;
-        padding: 0.25rem 0.6rem !important;
-        min-height: 30px !important;
-        gap: 0.25rem !important;
-    }
-
-    .status-tab svg {
-        width: 14px !important;
-        height: 14px !important;
-    }
-
-    .status-tab .status-count-badge {
-        font-size: var(--font-xs) !important;
-        padding: 0.05rem 0.35rem !important;
     }
 
     .booking-card .card-body {
@@ -1648,11 +1668,6 @@ div[class*="payment"] {
         height: 12px !important;
     }
 
-    .status-tabs-wrapper {
-        gap: 0.3rem !important;
-        padding-bottom: 0.3rem !important;
-    }
-
     .modal-dialog {
         margin: 0.3rem !important;
     }
@@ -1694,6 +1709,32 @@ div[class*="payment"] {
         --sp-xl: 1rem;
     }
 
+    .status-tabs-wrapper {
+        gap: 0.25rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin: 0 -0.75rem !important;
+        width: calc(100% + 1.5rem) !important;
+    }
+
+    .status-tab {
+        padding: 0.2rem 0.5rem !important;
+        font-size: var(--font-xs) !important;
+        min-height: 26px !important;
+        gap: 0.2rem !important;
+    }
+
+    .status-tab svg {
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    .status-tab .status-count-badge {
+        font-size: 0.5rem !important;
+        padding: 0.05rem 0.3rem !important;
+    }
+
     #paymentModal img[src*="qr"],
     #paymentModal img[src*="QR"],
     .payment-modal img[src*="qr"],
@@ -1722,23 +1763,6 @@ div[class*="payment"] {
 
     #paymentModal .modal-content {
         border-radius: 0.5rem !important;
-    }
-
-    .status-tab {
-        padding: 0.2rem 0.5rem !important;
-        font-size: var(--font-xs) !important;
-        min-height: 26px !important;
-        gap: 0.2rem !important;
-    }
-
-    .status-tab svg {
-        width: 12px !important;
-        height: 12px !important;
-    }
-
-    .status-tab .status-count-badge {
-        font-size: 0.5rem !important;
-        padding: 0.05rem 0.3rem !important;
     }
 
     .booking-card .card-body {
@@ -1822,11 +1846,6 @@ div[class*="payment"] {
         height: 10px !important;
     }
 
-    .status-tabs-wrapper {
-        gap: 0.25rem !important;
-        padding-bottom: 0.25rem !important;
-    }
-
     .modal-dialog {
         margin: 0.15rem !important;
     }
@@ -1842,6 +1861,31 @@ div[class*="payment"] {
 
 /* --- Extra Small (≤ 350px) --- */
 @media (max-width: 350px) {
+    .status-tabs-wrapper {
+        gap: 0.2rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        margin: 0 -1rem !important;
+        width: calc(100% + 2rem) !important;
+    }
+
+    .status-tab {
+        padding: 0.15rem 0.35rem !important;
+        font-size: 0.5rem !important;
+        min-height: 22px !important;
+    }
+
+    .status-tab svg {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .status-tab .status-count-badge {
+        font-size: 0.45rem !important;
+        padding: 0.05rem 0.2rem !important;
+    }
+
     #paymentModal img[src*="qr"],
     #paymentModal img[src*="QR"],
     .payment-modal img[src*="qr"],
@@ -1866,22 +1910,6 @@ div[class*="payment"] {
     #paymentModal .modal-dialog {
         margin: 0.1rem !important;
         max-width: 100% !important;
-    }
-
-    .status-tab {
-        padding: 0.15rem 0.35rem !important;
-        font-size: 0.5rem !important;
-        min-height: 22px !important;
-    }
-
-    .status-tab svg {
-        width: 10px !important;
-        height: 10px !important;
-    }
-
-    .status-tab .status-count-badge {
-        font-size: 0.45rem !important;
-        padding: 0.05rem 0.2rem !important;
     }
 
     .booking-card .card-body {
