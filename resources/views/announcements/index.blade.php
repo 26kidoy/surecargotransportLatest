@@ -26,26 +26,24 @@
             @foreach($announcements as $announcement)
                 <div class="col-md-6 col-lg-4 announcement-card" data-id="{{ $announcement->id }}">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        {{-- IMAGE SECTION - FIXED: Single image render with clean fallback --}}
                         @php
-                            // FIXED: Use the image_url accessor for public/uploads
                             $imageUrl = $announcement->image_url;
                         @endphp
-                        @if($imageUrl)
-                            <img src="{{ e($imageUrl) }}"
-                                 class="card-img-top"
-                                 alt="{{ e($announcement->title) }}"
-                                 style="height: 200px; object-fit: cover;"
-                                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="bg-light d-flex align-items-center justify-content-center"
-                                 style="height: 200px; display: none;">
-                                <i class="fas fa-image fa-3x text-muted"></i>
-                            </div>
-                        @else
-                            <div class="bg-light d-flex align-items-center justify-content-center"
-                                 style="height: 200px;">
-                                <i class="fas fa-image fa-3x text-muted"></i>
-                            </div>
-                        @endif
+                        <div class="card-img-top-wrapper" style="height: 200px; background: #f8f9fa; position: relative; overflow: hidden;">
+                            @if($imageUrl)
+                                <img src="{{ e($imageUrl) }}"
+                                     class="card-img-top w-100 h-100"
+                                     alt="{{ e($announcement->title) }}"
+                                     style="object-fit: cover;"
+                                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-100 h-100 d-flex align-items-center justify-content-center\'><i class=\'fas fa-image fa-3x text-muted\'></i></div>';">
+                            @else
+                                <div class="w-100 h-100 d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-image fa-3x text-muted"></i>
+                                </div>
+                            @endif
+                        </div>
+
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold">{{ e($announcement->title) }}</h5>
                             <p class="card-text flex-grow-1">{{ e(Str::limit($announcement->content, 120)) }}</p>
