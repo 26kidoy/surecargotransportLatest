@@ -7,13 +7,7 @@
     <div class="container py-5">
         <!-- Hero Section -->
         <div class="text-center mb-5">
-            <div class="track-icon mb-4">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#2563EB" stroke-width="1.5"/>
-                    <circle cx="12" cy="12" r="3" stroke="#2563EB" stroke-width="1.5"/>
-                    <path d="M12 5v2M12 17v2M5 12H3M21 12h-2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </div>
+
             <h1 class="display-4 fw-bold mb-3">Track Your Shipment</h1>
             <p class="lead text-muted fs-3">Enter your booking reference to track your cargo in real-time</p>
         </div>
@@ -42,7 +36,7 @@
                             </div>
                             <div class="form-text text-muted fs-5 mt-2">
                                 <i class="fas fa-info-circle me-1"></i>
-                                Enter the booking reference you received in your mobile number
+                                Enter the booking reference you received via SMS
                             </div>
                         </div>
 
@@ -71,65 +65,22 @@
                 </div>
             </div>
         </div>
-
-        <!-- Info Section -->
-        <div class="row mt-5 pt-4 g-4">
-            <div class="col-md-4">
-                <div class="info-card text-center p-4 rounded-4 h-100">
-                    <div class="info-icon mb-3">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 8v4l3 3" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
-                            <circle cx="12" cy="12" r="9" stroke="#2563EB" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h5 class="fw-bold mb-2">Real-time Tracking</h5>
-                    <p class="text-muted">Track your shipment status in real-time from pickup to delivery</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-card text-center p-4 rounded-4 h-100">
-                    <div class="info-icon mb-3">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2563EB" stroke-width="1.5"/>
-                            <path d="M22 4L12 14.01l-3-3" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h5 class="fw-bold mb-2">Status Updates</h5>
-                    <p class="text-muted">Get instant updates on your shipment's current status</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-card text-center p-4 rounded-4 h-100">
-                    <div class="info-icon mb-3">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 15h18M5 9h14M7 3h10M5 21h2M17 21h2" stroke="#2563EB" stroke-width="1.5"/>
-                            <circle cx="7" cy="18" r="2" fill="#2563EB"/>
-                            <circle cx="17" cy="18" r="2" fill="#2563EB"/>
-                        </svg>
-                    </div>
-                    <h5 class="fw-bold mb-2">Live Location</h5>
-                    <p class="text-muted">View your shipment's current location on interactive maps</p>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 <!-- Custom Styles -->
 <style nonce="{{ $csp_nonce }}">
 /* ============================================================
-   TRACK & VALIDATE - DEEPSEEK-STYLE RESPONSIVE STYLES
+   TRACK & VALIDATE - CLEAN VERSION
    ============================================================ */
 
 :root {
     --primary-color: #2563EB;
     --primary-dark: #1D4ED8;
-    --primary-light: #DBEAFE;
     --text-dark: #111827;
     --text-muted: #6B7280;
     --border-light: #E5E7EB;
 
-    /* DEEPSEEK-STYLE FONT SIZES */
     --font-xs: 0.75rem;
     --font-sm: 0.875rem;
     --font-base: 1rem;
@@ -192,21 +143,6 @@ body {
 
 .track-card .card-body {
     padding: var(--sp-xl) !important;
-}
-
-.info-card {
-    background: white;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 1rem;
-    padding: var(--sp-lg);
-    height: 100%;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border-color: rgba(37, 99, 235, 0.2);
 }
 
 /* ============================================================
@@ -324,7 +260,6 @@ h1.display-4 {
     line-height: 1.6 !important;
 }
 
-/* Utility font sizes - Desktop */
 .fs-2 {
     font-size: var(--font-xl) !important;
     font-weight: 700 !important;
@@ -343,27 +278,6 @@ h1.display-4 {
 .fs-5 {
     font-size: var(--font-base) !important;
     font-weight: 400 !important;
-}
-
-/* Info Card Typography */
-.info-card h5 {
-    font-size: var(--font-lg) !important;
-    font-weight: 700 !important;
-    margin-bottom: var(--sp-sm) !important;
-    color: var(--text-dark);
-}
-
-.info-card p {
-    font-size: var(--font-base) !important;
-    font-weight: 400 !important;
-    color: var(--text-muted);
-    margin-bottom: 0;
-    line-height: 1.5;
-}
-
-.info-card i {
-    font-size: var(--font-xl);
-    color: var(--primary-color);
 }
 
 /* ============================================================
@@ -403,7 +317,7 @@ h1.display-4 {
 }
 
 /* ============================================================
-   RESPONSIVE - DEEPSEEK STYLE
+   RESPONSIVE
    ============================================================ */
 
 /* --- Tablets (769px - 1024px) --- */
@@ -433,10 +347,6 @@ h1.display-4 {
 
     .track-card .card-body {
         padding: var(--sp-lg) !important;
-    }
-
-    .info-card {
-        padding: var(--sp-md);
     }
 }
 
@@ -474,12 +384,6 @@ h1.display-4 {
         padding: var(--sp-md) !important;
     }
 
-    .info-card {
-        padding: var(--sp-sm);
-        border-radius: 0.75rem;
-    }
-
-    /* Typography - Mobile */
     h1.display-4 {
         font-size: var(--font-xxxl) !important;
     }
@@ -504,19 +408,6 @@ h1.display-4 {
         font-size: var(--font-sm) !important;
     }
 
-    .info-card h5 {
-        font-size: var(--font-md) !important;
-    }
-
-    .info-card p {
-        font-size: var(--font-sm) !important;
-    }
-
-    .info-card i {
-        font-size: var(--font-lg);
-    }
-
-    /* Form Elements - Mobile */
     .form-control {
         font-size: var(--font-sm);
         padding: 0.6rem 0.8rem;
@@ -537,15 +428,10 @@ h1.display-4 {
         min-height: 42px;
     }
 
-    /* Alert - Mobile */
     .alert {
         font-size: var(--font-sm);
         padding: var(--sp-sm) var(--sp-md);
         border-radius: 0.6rem;
-    }
-
-    .track-icon i {
-        font-size: var(--font-xxl) !important;
     }
 }
 
@@ -582,12 +468,6 @@ h1.display-4 {
         padding: var(--sp-sm) !important;
     }
 
-    .info-card {
-        padding: var(--sp-xs);
-        border-radius: 0.5rem;
-    }
-
-    /* Typography - Small Phones */
     h1.display-4 {
         font-size: var(--font-xxl) !important;
     }
@@ -612,19 +492,6 @@ h1.display-4 {
         font-size: var(--font-xs) !important;
     }
 
-    .info-card h5 {
-        font-size: var(--font-sm) !important;
-    }
-
-    .info-card p {
-        font-size: var(--font-xs) !important;
-    }
-
-    .info-card i {
-        font-size: var(--font-base);
-    }
-
-    /* Form Elements - Small Phones */
     .form-control {
         font-size: var(--font-xs);
         padding: 0.4rem 0.6rem;
@@ -646,27 +513,11 @@ h1.display-4 {
         min-height: 36px;
     }
 
-    /* Alert - Small Phones */
     .alert {
         font-size: var(--font-xs);
         padding: var(--sp-xs) var(--sp-sm);
         border-radius: 0.5rem;
         border-left-width: 3px;
-    }
-
-    .track-icon i {
-        font-size: var(--font-xl) !important;
-    }
-
-    /* Grid adjustments */
-    .row.g-4 {
-        --bs-gutter-y: var(--sp-sm) !important;
-        --bs-gutter-x: var(--sp-sm) !important;
-    }
-
-    .col-md-6 {
-        padding-left: var(--sp-xs);
-        padding-right: var(--sp-xs);
     }
 }
 
@@ -703,12 +554,6 @@ h1.display-4 {
         padding: var(--sp-xs) !important;
     }
 
-    .info-card {
-        padding: 0.1rem;
-        border-radius: 0.4rem;
-    }
-
-    /* Typography - Very Small */
     h1.display-4 {
         font-size: var(--font-xl) !important;
     }
@@ -733,19 +578,6 @@ h1.display-4 {
         font-size: 0.55rem !important;
     }
 
-    .info-card h5 {
-        font-size: var(--font-xs) !important;
-    }
-
-    .info-card p {
-        font-size: 0.6rem !important;
-    }
-
-    .info-card i {
-        font-size: var(--font-sm);
-    }
-
-    /* Form Elements - Very Small */
     .form-control {
         font-size: 0.6rem;
         padding: 0.3rem 0.4rem;
@@ -771,15 +603,6 @@ h1.display-4 {
         padding: 0.2rem 0.4rem;
         border-radius: 0.4rem;
         border-left-width: 2px;
-    }
-
-    .track-icon i {
-        font-size: var(--font-lg) !important;
-    }
-
-    .row.g-4 {
-        --bs-gutter-y: var(--sp-xs) !important;
-        --bs-gutter-x: var(--sp-xs) !important;
     }
 }
 
@@ -812,14 +635,6 @@ h1.display-4 {
         font-size: 0.55rem !important;
     }
 
-    .info-card h5 {
-        font-size: 0.65rem !important;
-    }
-
-    .info-card p {
-        font-size: 0.5rem !important;
-    }
-
     .form-control {
         font-size: 0.5rem;
         padding: 0.2rem 0.3rem;
@@ -842,22 +657,6 @@ h1.display-4 {
         font-size: 0.5rem;
         padding: 0.15rem 0.3rem;
     }
-
-    .track-icon i {
-        font-size: var(--font-base) !important;
-    }
-}
-
-/* ============================================================
-   HIDDEN AUDIO (click only)
-   ============================================================ */
-#clickAudio {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
 }
 </style>
 @endsection
@@ -901,27 +700,17 @@ $(document).ready(function() {
                 $trackButton.prop('disabled', false);
 
                 if (response.success) {
-                    if (response.data.is_in_transit && response.data.can_track) {
+                    if (response.data.can_track && response.data.redirect_url) {
                         // Show success message
                         showAlert(response.data.message, 'success');
 
-                        // Redirect after 2 seconds
+                        // Redirect after 1.5 seconds
                         setTimeout(function() {
                             window.location.href = response.data.redirect_url;
-                        }, 2000);
+                        }, 1500);
                     } else {
                         // Show status message but no redirect
-                        showAlert(response.data.message, 'info');
-
-                        // Optionally, show a "View Details" button
-                        $resultAlert.append(`
-                            <div class="mt-3">
-                                <button class="btn btn-outline-primary" onclick="viewBookingDetails('${response.data.booking_reference}')">
-                                    <i class="fas fa-info-circle me-2"></i>
-                                    View Booking Details
-                                </button>
-                            </div>
-                        `);
+                        showAlert(response.data.message, 'warning');
                     }
                 } else {
                     showAlert(response.message, 'danger');
@@ -938,6 +727,8 @@ $(document).ready(function() {
                     errorMessage = 'Booking reference not found. Please check and try again.';
                 } else if (xhr.status === 422) {
                     errorMessage = 'Invalid booking reference format.';
+                } else if (xhr.status === 403) {
+                    errorMessage = 'You do not have permission to track this booking.';
                 }
 
                 showAlert(errorMessage, 'danger');
@@ -973,34 +764,29 @@ $(document).ready(function() {
                     (type === 'danger' ? 'fa-exclamation-circle' :
                     (type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'));
 
+        const title = type.charAt(0).toUpperCase() + type.slice(1);
+
         $resultAlert.html(`
             <div class="alert ${alertClass} alert-dismissible fade show rounded-4" role="alert">
-                <div class="d-flex align-items-center">
-                    <i class="fas ${icon} fs-2 me-3"></i>
-                    <div>
-                        <strong class="fs-4">${type.charAt(0).toUpperCase() + type.slice(1)}!</strong>
+                <div class="d-flex align-items-start">
+                    <i class="fas ${icon} fs-2 me-3 mt-1"></i>
+                    <div class="flex-grow-1">
+                        <strong class="fs-4">${title}!</strong>
                         <p class="mb-0 fs-5 mt-1">${message}</p>
                     </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         `);
         $resultAlert.show();
 
-        // Auto-hide after 5 seconds for success messages
+        // Auto-hide after 8 seconds for success messages
         if (type === 'success') {
             setTimeout(function() {
-                $resultAlert.fadeOut();
-            }, 5000);
+                $resultAlert.fadeOut(500);
+            }, 8000);
         }
     }
 });
-
-// Global function for viewing booking details (optional)
-function viewBookingDetails(bookingRef) {
-    // You can implement this to show a modal with booking details
-    // Or redirect to a details page
-    alert(`Viewing details for booking: ${bookingRef}\n\nThis feature can be implemented based on your requirements.`);
-}
 </script>
 @endpush
