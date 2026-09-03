@@ -17,6 +17,7 @@
     <style nonce="{{ $csp_nonce }}">
       /* ============================================================
    FIND/MAP PAGE - DEEPSEEK-STYLE RESPONSIVE STYLES
+   FIXED: NO API KEY REQUIRED, REMOVED BACKGROUND AUDIO
    ============================================================ */
 
 :root {
@@ -32,16 +33,16 @@
     --font-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --navbar-height: 80px;
 
-    /* DEEPSEEK-STYLE FONT SIZES */
-    --font-xs: 0.75rem;
-    --font-sm: 0.875rem;
-    --font-base: 1rem;
-    --font-md: 1.125rem;
-    --font-lg: 1.25rem;
-    --font-xl: 1.5rem;
-    --font-xxl: 1.75rem;
-    --font-xxxl: 2.25rem;
-    --font-xxxxl: 3rem;
+    /* FONT SIZES - ENHANCED FOR MOBILE */
+    --font-xs: 0.8rem;
+    --font-sm: 0.95rem;
+    --font-base: 1.05rem;
+    --font-md: 1.2rem;
+    --font-lg: 1.35rem;
+    --font-xl: 1.6rem;
+    --font-xxl: 1.9rem;
+    --font-xxxl: 2.5rem;
+    --font-xxxxl: 3.2rem;
 
     --sp-xs: 0.25rem;
     --sp-sm: 0.5rem;
@@ -559,40 +560,21 @@ img, svg, iframe, video {
 }
 
 /* ============================================================
-   HIDDEN AUDIO
-   ============================================================ */
-#bgAudio {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
-}
-
-/* ============================================================
-   RESPONSIVE - DEEPSEEK STYLE
+   RESPONSIVE - ENHANCED FOR BIGGER MOBILE FONTS
    ============================================================ */
 
 /* --- Tablets & Small Desktops (769px - 992px) --- */
 @media (min-width: 769px) and (max-width: 992px) {
     :root {
-        --font-xs: 0.75rem;
-        --font-sm: 0.85rem;
-        --font-base: 0.95rem;
-        --font-md: 1.05rem;
-        --font-lg: 1.15rem;
-        --font-xl: 1.3rem;
-        --font-xxl: 1.5rem;
-        --font-xxxl: 1.8rem;
-        --font-xxxxl: 2.5rem;
-
-        --sp-xs: 0.25rem;
-        --sp-sm: 0.5rem;
-        --sp-md: 0.9rem;
-        --sp-lg: 1.3rem;
-        --sp-xl: 1.7rem;
-        --sp-xxl: 2.5rem;
+        --font-xs: 0.8rem;
+        --font-sm: 0.9rem;
+        --font-base: 1rem;
+        --font-md: 1.1rem;
+        --font-lg: 1.25rem;
+        --font-xl: 1.4rem;
+        --font-xxl: 1.6rem;
+        --font-xxxl: 1.9rem;
+        --font-xxxxl: 2.6rem;
     }
 
     .page-header h1 {
@@ -616,25 +598,25 @@ img, svg, iframe, video {
     }
 }
 
-/* --- Mobile Devices (≤ 768px) --- */
+/* --- Mobile Devices (≤ 768px) - LARGER FONTS --- */
 @media (max-width: 768px) {
     :root {
-        --font-xs: 0.7rem;
-        --font-sm: 0.8rem;
-        --font-base: 0.9rem;
-        --font-md: 1rem;
-        --font-lg: 1.1rem;
-        --font-xl: 1.2rem;
-        --font-xxl: 1.4rem;
-        --font-xxxl: 1.6rem;
-        --font-xxxxl: 2rem;
+        --font-xs: 0.85rem;
+        --font-sm: 0.95rem;
+        --font-base: 1.1rem;
+        --font-md: 1.25rem;
+        --font-lg: 1.4rem;
+        --font-xl: 1.55rem;
+        --font-xxl: 1.7rem;
+        --font-xxxl: 1.9rem;
+        --font-xxxxl: 2.2rem;
 
-        --sp-xs: 0.2rem;
-        --sp-sm: 0.4rem;
-        --sp-md: 0.8rem;
-        --sp-lg: 1.2rem;
-        --sp-xl: 1.5rem;
-        --sp-xxl: 2rem;
+        --sp-xs: 0.3rem;
+        --sp-sm: 0.5rem;
+        --sp-md: 0.9rem;
+        --sp-lg: 1.3rem;
+        --sp-xl: 1.7rem;
+        --sp-xxl: 2.5rem;
     }
 
     body {
@@ -674,7 +656,7 @@ img, svg, iframe, video {
         text-align: center;
         border-radius: 30px;
         transition: background 0.2s;
-        min-height: 38px;
+        min-height: 44px;
         align-items: center;
         justify-content: center;
     }
@@ -689,15 +671,15 @@ img, svg, iframe, video {
         text-align: center;
         margin: var(--sp-xs) 0;
         white-space: normal;
-        min-height: 38px;
-        font-size: var(--font-sm);
+        min-height: 44px;
+        font-size: var(--font-base);
     }
 
     .menu-icon {
         display: flex;
-        font-size: var(--font-lg);
-        min-height: 40px;
-        min-width: 40px;
+        font-size: var(--font-xl);
+        min-height: 44px;
+        min-width: 44px;
     }
 
     .page-header {
@@ -713,7 +695,7 @@ img, svg, iframe, video {
     }
 
     .badge-pill-custom {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
         padding: var(--sp-xs) var(--sp-md);
     }
 
@@ -750,7 +732,7 @@ img, svg, iframe, video {
     }
 
     #map {
-        height: 380px;
+        height: 400px;
         border-radius: 1.2rem;
     }
 
@@ -758,13 +740,13 @@ img, svg, iframe, video {
     .btn-outline-custom {
         padding: var(--sp-xs) var(--sp-md);
         font-size: var(--font-sm);
-        min-height: 38px;
+        min-height: 44px;
     }
 
     .btn-back {
         padding: var(--sp-sm) var(--sp-lg);
-        font-size: var(--font-sm);
-        min-height: 38px;
+        font-size: var(--font-base);
+        min-height: 44px;
         border-radius: 40px;
     }
 
@@ -774,7 +756,7 @@ img, svg, iframe, video {
     }
 
     .footer p {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
     }
 
     .container {
@@ -788,7 +770,7 @@ img, svg, iframe, video {
 
     .leaflet-popup-content {
         font-size: var(--font-sm) !important;
-        min-width: 160px !important;
+        min-width: 180px !important;
     }
 
     .leaflet-popup-content strong {
@@ -801,29 +783,29 @@ img, svg, iframe, video {
 
     .leaflet-container a.leaflet-popup-close-button {
         font-size: var(--font-md) !important;
-        padding: 4px !important;
+        padding: 6px !important;
     }
 }
 
-/* --- Small Phones (≤ 576px) --- */
+/* --- Small Phones (≤ 576px) - LARGER FONTS --- */
 @media (max-width: 576px) {
     :root {
-        --font-xs: 0.65rem;
-        --font-sm: 0.75rem;
-        --font-base: 0.85rem;
-        --font-md: 0.95rem;
-        --font-lg: 1.05rem;
-        --font-xl: 1.15rem;
-        --font-xxl: 1.3rem;
-        --font-xxxl: 1.5rem;
-        --font-xxxxl: 1.8rem;
+        --font-xs: 0.8rem;
+        --font-sm: 0.9rem;
+        --font-base: 1rem;
+        --font-md: 1.15rem;
+        --font-lg: 1.3rem;
+        --font-xl: 1.45rem;
+        --font-xxl: 1.6rem;
+        --font-xxxl: 1.8rem;
+        --font-xxxxl: 2rem;
 
-        --sp-xs: 0.15rem;
-        --sp-sm: 0.3rem;
-        --sp-md: 0.6rem;
-        --sp-lg: 1rem;
-        --sp-xl: 1.2rem;
-        --sp-xxl: 1.5rem;
+        --sp-xs: 0.25rem;
+        --sp-sm: 0.4rem;
+        --sp-md: 0.7rem;
+        --sp-lg: 1.1rem;
+        --sp-xl: 1.3rem;
+        --sp-xxl: 1.8rem;
     }
 
     .navbar-custom {
@@ -835,22 +817,22 @@ img, svg, iframe, video {
     }
 
     .menu-icon {
-        font-size: var(--font-base);
-        min-height: 36px;
-        min-width: 36px;
+        font-size: var(--font-md);
+        min-height: 40px;
+        min-width: 40px;
         padding: var(--sp-xs);
     }
 
     .navbar-custom .nav-links a {
-        font-size: var(--font-xs);
-        min-height: 34px;
+        font-size: var(--font-sm);
+        min-height: 40px;
         padding: var(--sp-xs) var(--sp-sm);
     }
 
     .navbar-custom .nav-links .btn-primary-custom,
     .navbar-custom .nav-links .btn-outline-custom {
-        font-size: var(--font-xs);
-        min-height: 34px;
+        font-size: var(--font-sm);
+        min-height: 40px;
         padding: var(--sp-xs) var(--sp-sm);
     }
 
@@ -878,22 +860,22 @@ img, svg, iframe, video {
     }
 
     .location-card h3 {
-        font-size: var(--font-sm);
+        font-size: var(--font-md);
     }
 
     .location-card p {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
         gap: var(--sp-xs);
         margin-bottom: var(--sp-xs);
     }
 
     .location-card i {
-        font-size: var(--font-sm);
-        width: 1.5rem;
+        font-size: var(--font-base);
+        width: 1.6rem;
     }
 
     .location-card a {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
     }
 
     .map-container {
@@ -903,22 +885,22 @@ img, svg, iframe, video {
     }
 
     #map {
-        height: 320px;
+        height: 350px;
         border-radius: 1rem;
     }
 
     .btn-primary-custom,
     .btn-outline-custom {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
         padding: var(--sp-xs) var(--sp-sm);
-        min-height: 34px;
+        min-height: 40px;
         border-radius: 40px;
     }
 
     .btn-back {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
         padding: var(--sp-xs) var(--sp-sm);
-        min-height: 34px;
+        min-height: 40px;
         border-radius: 40px;
     }
 
@@ -928,7 +910,7 @@ img, svg, iframe, video {
     }
 
     .footer p {
-        font-size: 0.6rem;
+        font-size: var(--font-xs);
     }
 
     .container {
@@ -942,42 +924,42 @@ img, svg, iframe, video {
 
     .text-center .btn-back {
         width: 100%;
-        max-width: 240px;
+        max-width: 260px;
     }
 
     .leaflet-popup-content {
-        font-size: var(--font-xs) !important;
-        min-width: 140px !important;
+        font-size: var(--font-sm) !important;
+        min-width: 160px !important;
     }
 
     .leaflet-popup-content strong {
-        font-size: var(--font-sm) !important;
+        font-size: var(--font-base) !important;
     }
 
     .leaflet-popup-content a {
-        font-size: var(--font-xs) !important;
+        font-size: var(--font-sm) !important;
     }
 }
 
-/* --- Very Small Phones (≤ 400px) --- */
+/* --- Very Small Phones (≤ 400px) - LARGER FONTS --- */
 @media (max-width: 400px) {
     :root {
-        --font-xs: 0.6rem;
-        --font-sm: 0.7rem;
-        --font-base: 0.8rem;
-        --font-md: 0.9rem;
-        --font-lg: 1rem;
-        --font-xl: 1.1rem;
-        --font-xxl: 1.2rem;
-        --font-xxxl: 1.4rem;
-        --font-xxxxl: 1.6rem;
+        --font-xs: 0.75rem;
+        --font-sm: 0.85rem;
+        --font-base: 0.95rem;
+        --font-md: 1.05rem;
+        --font-lg: 1.15rem;
+        --font-xl: 1.25rem;
+        --font-xxl: 1.4rem;
+        --font-xxxl: 1.5rem;
+        --font-xxxxl: 1.7rem;
 
-        --sp-xs: 0.1rem;
-        --sp-sm: 0.25rem;
-        --sp-md: 0.5rem;
-        --sp-lg: 0.8rem;
-        --sp-xl: 1rem;
-        --sp-xxl: 1.2rem;
+        --sp-xs: 0.2rem;
+        --sp-sm: 0.35rem;
+        --sp-md: 0.6rem;
+        --sp-lg: 0.9rem;
+        --sp-xl: 1.1rem;
+        --sp-xxl: 1.4rem;
     }
 
     body {
@@ -990,19 +972,19 @@ img, svg, iframe, video {
     }
 
     .navbar-custom .logo {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .menu-icon {
-        font-size: 0.7rem;
-        min-height: 32px;
-        min-width: 32px;
+        font-size: 0.9rem;
+        min-height: 36px;
+        min-width: 36px;
         padding: 0.1rem;
     }
 
     .navbar-custom .nav-links a {
-        font-size: 0.55rem;
-        min-height: 30px;
+        font-size: 0.8rem;
+        min-height: 36px;
         padding: 0.1rem var(--sp-xs);
     }
 
@@ -1011,7 +993,7 @@ img, svg, iframe, video {
     }
 
     .page-header .lead {
-        font-size: 0.65rem;
+        font-size: 0.8rem;
     }
 
     .location-card {
@@ -1021,22 +1003,22 @@ img, svg, iframe, video {
     }
 
     .location-card h3 {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
     }
 
     .location-card p {
-        font-size: 0.55rem;
+        font-size: 0.75rem;
         gap: var(--sp-xs);
         margin-bottom: 0.1rem;
     }
 
     .location-card i {
-        font-size: 0.6rem;
-        width: 1.2rem;
+        font-size: 0.8rem;
+        width: 1.4rem;
     }
 
     .location-card a {
-        font-size: 0.55rem;
+        font-size: 0.75rem;
     }
 
     .map-container {
@@ -1046,27 +1028,27 @@ img, svg, iframe, video {
     }
 
     #map {
-        height: 280px;
+        height: 300px;
         border-radius: 0.8rem;
     }
 
     .btn-primary-custom,
     .btn-outline-custom {
-        font-size: 0.55rem;
+        font-size: 0.75rem;
         padding: 0.1rem var(--sp-xs);
-        min-height: 30px;
+        min-height: 36px;
         border-radius: 30px;
     }
 
     .btn-back {
-        font-size: 0.55rem;
+        font-size: 0.75rem;
         padding: 0.1rem var(--sp-xs);
-        min-height: 30px;
+        min-height: 36px;
         border-radius: 30px;
     }
 
     .badge-pill-custom {
-        font-size: 0.55rem;
+        font-size: 0.7rem;
         padding: 0.1rem var(--sp-xs);
     }
 
@@ -1076,7 +1058,7 @@ img, svg, iframe, video {
     }
 
     .footer p {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 
     .container {
@@ -1089,47 +1071,47 @@ img, svg, iframe, video {
     }
 
     .text-center .btn-back {
-        max-width: 200px;
+        max-width: 220px;
     }
 
     .leaflet-popup-content {
-        font-size: 0.55rem !important;
-        min-width: 120px !important;
+        font-size: 0.75rem !important;
+        min-width: 140px !important;
     }
 
     .leaflet-popup-content strong {
-        font-size: 0.6rem !important;
+        font-size: 0.85rem !important;
     }
 
     .leaflet-popup-content a {
-        font-size: 0.55rem !important;
+        font-size: 0.75rem !important;
     }
 
     .leaflet-container a.leaflet-popup-close-button {
-        font-size: 0.7rem !important;
-        padding: 3px !important;
+        font-size: 0.9rem !important;
+        padding: 4px !important;
     }
 }
 
 /* --- Extra Small (≤ 350px) --- */
 @media (max-width: 350px) {
     :root {
-        --font-xs: 0.5rem;
-        --font-sm: 0.6rem;
-        --font-base: 0.7rem;
-        --font-md: 0.8rem;
-        --font-lg: 0.9rem;
-        --font-xl: 1rem;
-        --font-xxl: 1.1rem;
-        --font-xxxl: 1.2rem;
-        --font-xxxxl: 1.4rem;
+        --font-xs: 0.7rem;
+        --font-sm: 0.8rem;
+        --font-base: 0.9rem;
+        --font-md: 1rem;
+        --font-lg: 1.1rem;
+        --font-xl: 1.2rem;
+        --font-xxl: 1.3rem;
+        --font-xxxl: 1.4rem;
+        --font-xxxxl: 1.5rem;
 
-        --sp-xs: 0.05rem;
-        --sp-sm: 0.2rem;
-        --sp-md: 0.4rem;
-        --sp-lg: 0.6rem;
-        --sp-xl: 0.8rem;
-        --sp-xxl: 1rem;
+        --sp-xs: 0.15rem;
+        --sp-sm: 0.3rem;
+        --sp-md: 0.5rem;
+        --sp-lg: 0.7rem;
+        --sp-xl: 0.9rem;
+        --sp-xxl: 1.1rem;
     }
 
     .page-header h1 {
@@ -1137,35 +1119,35 @@ img, svg, iframe, video {
     }
 
     .page-header .lead {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 
     #map {
-        height: 220px;
+        height: 250px;
     }
 
     .location-card h3 {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     .location-card p {
-        font-size: 0.45rem;
+        font-size: 0.65rem;
     }
 
     .btn-back {
-        font-size: 0.45rem;
+        font-size: 0.65rem;
         padding: 0.05rem var(--sp-xs);
-        min-height: 26px;
+        min-height: 30px;
     }
 
     .navbar-custom .logo {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .menu-icon {
-        font-size: 0.6rem;
-        min-height: 28px;
-        min-width: 28px;
+        font-size: 0.7rem;
+        min-height: 30px;
+        min-width: 30px;
     }
 }
     </style>
@@ -1180,8 +1162,7 @@ img, svg, iframe, video {
 
 <div class="page-wrapper">
 
-<!-- ===== HIDDEN AUDIO ELEMENTS ===== -->
-<audio id="bgAudio" src="{{ asset('audio/truckengine.mp3') }}" loop preload="auto"></audio>
+<!-- ===== CLICK SOUND ONLY (NO BACKGROUND AUDIO) ===== -->
 <audio id="clickAudio" src="{{ asset('audio/click.mp3') }}" preload="auto"></audio>
 
 <!-- ===== NAVBAR ===== -->
@@ -1238,7 +1219,7 @@ img, svg, iframe, video {
                     <i class="fas fa-umbrella-beach"></i>
                     <h3 class="fw-bold mb-0">Sungko / Sulangan, Bantayan, Cebu</h3>
                 </div>
-                <p><i class="fas fa-ship"></i> Portside Cargo Terminal & Maintenance Camp (Sulangan Area)</p>
+                <p><i class="fas fa-ship"></i> Maintenance Camp (Sulangan Area)</p>
                 <p><i class="fas fa-clock"></i> Wed-Sat: 7:00 AM - 7:00 PM</p>
                 <a href="https://maps.google.com/?q=11.14225,123.724889" target="_blank">
                     Get Directions <i class="fas fa-arrow-right ms-1"></i>
@@ -1274,79 +1255,12 @@ img, svg, iframe, video {
 
 <script nonce="{{ $csp_nonce }}">
     // ============================================================
-    // 0. MOBILE-FRIENDLY BACKGROUND AUDIO & CLICK SOUNDS
+    // 0. CLICK SOUND ONLY (NO BACKGROUND AUDIO)
     // ============================================================
     (function() {
-        var bgAudio = document.getElementById('bgAudio');
         var clickAudio = document.getElementById('clickAudio');
 
-        // --- Background audio ---
-        if (bgAudio) {
-            bgAudio.volume = 0.5;
-            var audioStarted = false;
-
-            function startBackgroundAudio() {
-                if (audioStarted) return;
-                bgAudio.play().then(function() {
-                    audioStarted = true;
-                }).catch(function() {});
-            }
-
-            // Try to play immediately
-            startBackgroundAudio();
-
-            // Retry on load
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    if (!audioStarted) startBackgroundAudio();
-                }, 500);
-            });
-
-            // Start on any user interaction
-            function mobileAutoplayHandler() {
-                if (!audioStarted) {
-                    startBackgroundAudio();
-                }
-                if (audioStarted) {
-                    document.removeEventListener('click', mobileAutoplayHandler);
-                    document.removeEventListener('touchstart', mobileAutoplayHandler);
-                    document.removeEventListener('scroll', mobileAutoplayHandler);
-                    document.removeEventListener('keydown', mobileAutoplayHandler);
-                }
-            }
-
-            document.addEventListener('click', mobileAutoplayHandler);
-            document.addEventListener('touchstart', mobileAutoplayHandler);
-            document.addEventListener('scroll', mobileAutoplayHandler);
-            document.addEventListener('keydown', mobileAutoplayHandler);
-
-            // Save state
-            window.addEventListener('beforeunload', function() {
-                if (bgAudio) {
-                    try {
-                        sessionStorage.setItem('bgAudioTime', bgAudio.currentTime);
-                        sessionStorage.setItem('bgAudioPlaying', !bgAudio.paused ? 'true' : 'false');
-                    } catch (e) {}
-                }
-            });
-
-            window.addEventListener('load', function() {
-                try {
-                    var savedTime = sessionStorage.getItem('bgAudioTime');
-                    var wasPlaying = sessionStorage.getItem('bgAudioPlaying');
-                    if (savedTime && bgAudio) {
-                        bgAudio.currentTime = parseFloat(savedTime);
-                    }
-                    if (wasPlaying === 'true' && bgAudio && audioStarted) {
-                        bgAudio.play().catch(function() {});
-                    }
-                    sessionStorage.removeItem('bgAudioTime');
-                    sessionStorage.removeItem('bgAudioPlaying');
-                } catch (e) {}
-            });
-        }
-
-        // --- Click sound on ALL interactive elements ---
+        // --- Click sound on interactive elements ---
         function playClick() {
             if (clickAudio) {
                 clickAudio.currentTime = 0;
@@ -1357,18 +1271,13 @@ img, svg, iframe, video {
         document.addEventListener('click', function(e) {
             var target = e.target.closest('a, button, .btn-primary-custom, .btn-outline-custom, .btn-back, .location-card, .menu-icon, .nav-links a, .social-links a, .badge-pill-custom');
             if (target) {
-                if (target.closest('#bgAudio') || target.closest('#clickAudio')) {
+                if (target.closest('#clickAudio')) {
                     return;
                 }
                 playClick();
-                // Ensure audio starts on interaction
-                if (bgAudio && !audioStarted) {
-                    startBackgroundAudio();
-                }
             }
         });
 
-        window.__bgAudio = bgAudio;
         window.__clickAudio = clickAudio;
     })();
 
@@ -1554,7 +1463,7 @@ img, svg, iframe, video {
     })();
 
     // ============================================================
-    // 5. LEAFLET MAP
+    // 5. LEAFLET MAP - NO API KEY REQUIRED
     // ============================================================
     AOS.init({ duration: 800, once: false, mirror: false });
 
@@ -1578,11 +1487,11 @@ img, svg, iframe, video {
     }));
     var map = L.map('map').fitBounds(bounds, { padding: [60, 60] });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> & CartoDB',
-        subdomains: 'abcd',
+    // ✅ FIXED: Using OpenStreetMap tiles - NO API KEY REQUIRED!
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        minZoom: 10
+        minZoom: 10,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     var truckIcon = L.divIcon({
@@ -1628,7 +1537,7 @@ img, svg, iframe, video {
         }, 400);
     });
 
-    console.log("✅ Map loaded successfully");
+    console.log("✅ Map loaded successfully - NO API KEY REQUIRED!");
 </script>
 
 </body>
