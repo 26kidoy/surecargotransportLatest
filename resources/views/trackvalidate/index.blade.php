@@ -7,7 +7,6 @@
     <div class="container py-5">
         <!-- Hero Section -->
         <div class="text-center mb-5">
-
             <h1 class="display-4 fw-bold mb-3">Track Your Shipment</h1>
             <p class="lead text-muted fs-3">Enter your booking reference to track your cargo in real-time</p>
         </div>
@@ -115,6 +114,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: var(--text-dark);
 }
+.text-center {
+    margin-top: -50px;
+    
+}
 
 /* ============================================================
    CONTAINER
@@ -134,6 +137,7 @@ body {
     border-radius: 1.25rem;
     border: 1px solid var(--border-light);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-top: -30px;
 }
 
 .track-card:hover {
@@ -462,6 +466,7 @@ h1.display-4 {
 
     .track-card {
         border-radius: 0.75rem;
+        padding: var(--sp-md);
     }
 
     .track-card .card-body {
