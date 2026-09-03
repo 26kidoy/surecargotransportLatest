@@ -1989,18 +1989,12 @@ img, svg, iframe, video {
                 <div class="slide" id="slide0">
     <div class="step-title">🔒 <span>Secure</span> Access</div>
     <div class="step-desc">This site is secured by SureCargo Transport Admin. Contact details below:</div>
-    <button class="btn-choice" id="newCustomerBtn"><i class="fas fa-user-plus"></i> New in site?</button>
-    <button class="btn-choice" id="oldCustomerBtn"><i class="fas fa-user-check"></i> Existing/Trusted User</button>
+    <button class="btn-choice" id="newCustomerBtn"><i class="fas fa-user-plus"></i> Request Access</button>
+    <button class="btn-choice" id="oldCustomerBtn"><i class="fas fa-user-check"></i>Access code</button>
 
 
     <div class="contact-block">
-        <div class="contact-item">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span>Facebook: Real Doys k Gwapz</span>
-        </div>
+
         <div class="contact-item">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -2043,7 +2037,7 @@ img, svg, iframe, video {
                 </div>
                 <!-- STEP 1 – Old Customer -->
                 <div class="slide" id="slide1old">
-                    <div class="step-title">🔑 <span>Secret</span> Code</div>
+                    <div class="step-title">🔑 <span>Access</span> Code</div>
                     <div class="step-desc">Enter your secret code to access the platform. </div>
                     <div class="mb-3">
                         <label class="form-label"><i class="fas fa-lock me-1"></i> Access Code</label>
