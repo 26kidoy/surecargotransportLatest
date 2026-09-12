@@ -76,8 +76,9 @@ class ChatbotController extends Controller
             // Try each model until one works
             foreach ($this->freeModels as $model) {
                 try {
+                    // FIX: SSL verification enabled (removed 'verify' => false)
+                    // This resolves the 500 error in production environments.
                     $response = Http::timeout(30)
-                        ->withOptions(['verify' => false])
                         ->withHeaders([
                             'Authorization' => 'Bearer ' . $apiKey,
                             'Content-Type' => 'application/json',
