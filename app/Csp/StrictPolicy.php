@@ -59,12 +59,19 @@ class StrictPolicy extends Policy
                 'data:',
             ])
 
-            // Connect (for AJAX, WebSockets, etc.)
+            // Connect (for AJAX, WebSockets, source maps, etc.)
+            // FIX: Added CDN domains so source map (.map) files are not blocked
             ->addDirective(Directive::CONNECT, [
                 Keyword::SELF,
                 'https://diaper-plasma-lifting.ngrok-free.dev',
                 'wss://diaper-plasma-lifting.ngrok-free.dev',
                 'https://api.puter.com',
+                'https://cdn.jsdelivr.net',
+                'https://cdnjs.cloudflare.com',
+                'https://stackpath.bootstrapcdn.com',
+                'https://code.jquery.com',
+                'https://unpkg.com',
+                'https://cdn.datatables.net',
             ])
 
             // Frame sources
