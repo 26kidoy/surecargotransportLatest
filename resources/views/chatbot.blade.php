@@ -8,13 +8,11 @@
     <link rel="icon" type="image/jpeg" href="/assets/white.jpg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- CSP FIX: crossorigin + referrerpolicy prevents source map (.map) fetch -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style nonce="{{ $csp_nonce }}">
-      /* ============================================================
-   CHATBOT PAGE - DEEPSEEK-STYLE RESPONSIVE STYLES
-   ============================================================ */
 
 :root {
     --primary-color: #2b6ef0;
@@ -29,7 +27,6 @@
     --border-chat: #e0edfc;
     --success: #10b981;
 
-    /* DEEPSEEK-STYLE FONT SIZES */
     --font-xs: 0.75rem;
     --font-sm: 0.875rem;
     --font-base: 1rem;
@@ -255,6 +252,7 @@ body::-webkit-scrollbar,
     overflow-x: hidden;
 }
 
+/* -------- CHAT HEADER - ENLARGED FONTS & ICONS -------- */
 .chat-header {
     margin-top: var(--sp-md);
     padding: var(--sp-md) var(--sp-xl);
@@ -271,20 +269,22 @@ body::-webkit-scrollbar,
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .logo-area i {
-    font-size: var(--font-xl);
+    font-size: 2rem;
     color: var(--primary-color);
+    line-height: 1;
 }
 
 .logo-area h1 {
-    font-size: var(--font-xl);
+    font-size: 2rem;
     font-weight: 800;
     margin: 0;
     color: var(--text-dark);
     letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
 /* Mobile hamburger in header */
@@ -292,13 +292,13 @@ body::-webkit-scrollbar,
     display: none;
     background: transparent;
     border: none;
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--text-dark);
     padding: 4px 8px;
     cursor: pointer;
     touch-action: manipulation;
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 48px;
+    min-width: 48px;
     align-items: center;
     justify-content: center;
     -webkit-tap-highlight-color: transparent;
@@ -315,7 +315,7 @@ body::-webkit-scrollbar,
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 600;
-    font-size: var(--font-base);
+    font-size: var(--font-lg);
     transition: all 0.2s ease;
     border: 1px solid #cae0fc;
     display: inline-flex;
@@ -324,7 +324,7 @@ body::-webkit-scrollbar,
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    min-height: 40px;
+    min-height: 44px;
 }
 
 .home-btn:hover {
@@ -475,7 +475,7 @@ body::-webkit-scrollbar,
 }
 
 /* ============================================================
-   CHAT INPUT AREA
+   CHAT INPUT AREA - CENTERED TEXT & ICON-ONLY SEND BUTTON
    ============================================================ */
 .chat-input-area {
     padding: var(--sp-md) var(--sp-lg);
@@ -485,6 +485,7 @@ body::-webkit-scrollbar,
     border-top: 1px solid var(--border-chat);
     margin-bottom: var(--sp-md);
     flex-shrink: 0;
+    align-items: center;
 }
 
 .chat-input-area input {
@@ -501,6 +502,7 @@ body::-webkit-scrollbar,
     min-width: 0;
     touch-action: manipulation;
     min-height: 48px;
+    text-align: center;
 }
 
 .chat-input-area input:focus {
@@ -512,20 +514,22 @@ body::-webkit-scrollbar,
     color: #8aa9cc;
     font-size: var(--font-base);
     font-weight: 400;
+    text-align: center;
 }
 
 .chat-input-area button {
     background: linear-gradient(105deg, var(--primary-color), var(--primary-dark));
     border: none;
     border-radius: 70px;
-    padding: 0 var(--sp-xl);
+    padding: 0;
+    width: 56px;
     height: 56px;
     font-weight: 600;
     font-size: var(--font-base);
     color: var(--white);
     display: inline-flex;
     align-items: center;
-    gap: var(--sp-sm);
+    justify-content: center;
     transition: all 0.2s ease;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     cursor: pointer;
@@ -534,6 +538,14 @@ body::-webkit-scrollbar,
     touch-action: manipulation;
     min-height: 48px;
     min-width: 48px;
+}
+
+.chat-input-area button i {
+    font-size: 1.35em;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
 }
 
 .chat-input-area button:hover {
@@ -833,7 +845,7 @@ body::-webkit-scrollbar,
 }
 
 /* ============================================================
-   RESPONSIVE - DEEPSEEK STYLE
+   RESPONSIVE - DEEPSEEK STYLE (with BIGGER mobile fonts)
    ============================================================ */
 
 /* --- Tablets (769px - 860px) --- */
@@ -864,13 +876,13 @@ body::-webkit-scrollbar,
 /* --- Mobile Devices (≤ 768px) --- */
 @media (max-width: 768px) {
     :root {
-        --font-xs: 0.75rem;
-        --font-sm: 0.85rem;
-        --font-base: 1rem;
-        --font-md: 1.1rem;
-        --font-lg: 1.25rem;
-        --font-xl: 1.35rem;
-        --font-xxl: 1.5rem;
+        --font-xs: 0.8rem;
+        --font-sm: 0.95rem;
+        --font-base: 1.05rem;
+        --font-md: 1.2rem;
+        --font-lg: 1.35rem;
+        --font-xl: 1.5rem;
+        --font-xxl: 1.65rem;
 
         --sp-xs: 0.2rem;
         --sp-sm: 0.4rem;
@@ -884,30 +896,30 @@ body::-webkit-scrollbar,
     }
 
     .logo-area h1 {
-        font-size: var(--font-lg);
+        font-size: 1.8rem;
     }
 
     .logo-area i {
-        font-size: var(--font-lg);
+        font-size: 1.8rem;
     }
 
     .mobile-hamburger {
-        font-size: 1.8rem;
+        font-size: 2rem;
         padding: 4px 6px;
     }
 
     .home-btn {
-        font-size: var(--font-sm);
+        font-size: var(--font-lg);
         padding: var(--sp-xs) var(--sp-md);
-        min-height: 36px;
+        min-height: 40px;
     }
 
     .home-btn .btn-label {
-        display: none;
+        display: inline;
     }
 
     .home-btn i {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .sidebar-header {
@@ -930,7 +942,7 @@ body::-webkit-scrollbar,
     .quick-question {
         font-size: var(--font-sm);
         padding: var(--sp-sm) var(--sp-md);
-        min-height: 40px;
+        min-height: 44px;
         border-radius: 40px;
     }
 
@@ -945,21 +957,21 @@ body::-webkit-scrollbar,
     }
 
     .bubble {
-        font-size: var(--font-sm);
-        padding: var(--sp-sm) var(--sp-md);
-        max-width: 80%;
+        font-size: var(--font-base);
+        padding: var(--sp-md) var(--sp-lg);
+        max-width: 82%;
         border-radius: 1.5rem;
     }
 
     .message .avatar {
-        width: 44px;
-        height: 44px;
+        width: 46px;
+        height: 46px;
         font-size: var(--font-md);
     }
 
     .message.user .avatar {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
     }
 
     .chat-input-area {
@@ -968,20 +980,28 @@ body::-webkit-scrollbar,
     }
 
     .chat-input-area input {
-        font-size: var(--font-sm);
+        font-size: var(--font-base);
         padding: var(--sp-sm) var(--sp-md);
-        min-height: 40px;
+        min-height: 44px;
+        text-align: center;
     }
 
     .chat-input-area input::placeholder {
-        font-size: var(--font-sm);
+        font-size: var(--font-base);
+        text-align: center;
     }
 
     .chat-input-area button {
-        font-size: var(--font-sm);
-        padding: 0 var(--sp-lg);
+        font-size: var(--font-base);
+        width: 48px;
         height: 48px;
-        min-height: 40px;
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0;
+    }
+
+    .chat-input-area button i {
+        font-size: 1.4em;
     }
 
     .typing-indicator {
@@ -1033,12 +1053,12 @@ body::-webkit-scrollbar,
 /* --- Small Phones (≤ 600px) --- */
 @media (max-width: 600px) {
     :root {
-        --font-xs: 0.7rem;
-        --font-sm: 0.8rem;
-        --font-base: 0.95rem;
-        --font-md: 1.05rem;
-        --font-lg: 1.15rem;
-        --font-xl: 1.25rem;
+        --font-xs: 0.75rem;
+        --font-sm: 0.9rem;
+        --font-base: 1rem;
+        --font-md: 1.15rem;
+        --font-lg: 1.3rem;
+        --font-xl: 1.4rem;
 
         --sp-xs: 0.15rem;
         --sp-sm: 0.3rem;
@@ -1057,25 +1077,29 @@ body::-webkit-scrollbar,
     }
 
     .logo-area i {
-        font-size: var(--font-lg);
-    }
-
-    .logo-area h1 {
-        font-size: var(--font-md);
-    }
-
-    .mobile-hamburger {
         font-size: 1.6rem;
     }
 
+    .logo-area h1 {
+        font-size: 1.5rem;
+    }
+
+    .mobile-hamburger {
+        font-size: 1.8rem;
+    }
+
     .home-btn {
-        font-size: var(--font-xs);
+        font-size: var(--font-md);
         padding: 0.15rem var(--sp-sm);
-        min-height: 32px;
+        min-height: 38px;
+    }
+
+    .home-btn .btn-label {
+        display: inline;
     }
 
     .home-btn i {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .sidebar-header h3 {
@@ -1087,36 +1111,36 @@ body::-webkit-scrollbar,
     }
 
     .quick-question {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
         padding: var(--sp-xs) var(--sp-sm);
-        min-height: 34px;
+        min-height: 38px;
         gap: 8px;
         border-radius: 30px;
     }
 
     .quick-question i {
-        font-size: var(--font-sm);
+        font-size: var(--font-base);
         width: 20px;
     }
 
     .bubble {
-        font-size: var(--font-xs);
-        padding: var(--sp-xs) var(--sp-sm);
+        font-size: var(--font-base);
+        padding: var(--sp-sm) var(--sp-md);
         max-width: 85%;
         border-radius: 1.2rem;
     }
 
     .message .avatar {
-        width: 38px;
-        height: 38px;
-        font-size: var(--font-sm);
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-md);
         border-radius: 16px;
     }
 
     .message.user .avatar {
-        width: 36px;
-        height: 36px;
-        border-radius: 36px;
+        width: 38px;
+        height: 38px;
+        border-radius: 38px;
     }
 
     .chat-input-area {
@@ -1125,22 +1149,30 @@ body::-webkit-scrollbar,
     }
 
     .chat-input-area input {
-        font-size: var(--font-xs);
+        font-size: var(--font-base);
         padding: var(--sp-xs) var(--sp-sm);
-        min-height: 36px;
+        min-height: 40px;
         border-radius: 40px;
+        text-align: center;
     }
 
     .chat-input-area input::placeholder {
-        font-size: var(--font-xs);
+        font-size: var(--font-base);
+        text-align: center;
     }
 
     .chat-input-area button {
-        font-size: var(--font-xs);
-        padding: 0 var(--sp-md);
-        height: 42px;
-        min-height: 36px;
+        font-size: var(--font-base);
+        width: 44px;
+        height: 44px;
+        min-height: 40px;
+        min-width: 40px;
+        padding: 0;
         border-radius: 40px;
+    }
+
+    .chat-input-area button i {
+        font-size: 1.45em;
     }
 
     .chat-messages {
@@ -1153,7 +1185,7 @@ body::-webkit-scrollbar,
     }
 
     .typing-indicator span {
-        font-size: var(--font-xs);
+        font-size: var(--font-sm);
     }
 
     .typing-dot {
@@ -1164,10 +1196,10 @@ body::-webkit-scrollbar,
     .sidebar-close-btn {
         top: var(--sp-sm);
         right: var(--sp-sm);
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
-        min-height: 32px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        min-height: 34px;
         font-size: var(--font-md);
     }
 
@@ -1231,12 +1263,12 @@ body::-webkit-scrollbar,
 /* --- Very Small Phones (≤ 500px) --- */
 @media (max-width: 500px) {
     :root {
-        --font-xs: 0.65rem;
-        --font-sm: 0.75rem;
-        --font-base: 0.85rem;
-        --font-md: 0.95rem;
-        --font-lg: 1.05rem;
-        --font-xl: 1.15rem;
+        --font-xs: 0.7rem;
+        --font-sm: 0.85rem;
+        --font-base: 0.95rem;
+        --font-md: 1.1rem;
+        --font-lg: 1.2rem;
+        --font-xl: 1.3rem;
 
         --sp-xs: 0.1rem;
         --sp-sm: 0.25rem;
@@ -1264,65 +1296,77 @@ body::-webkit-scrollbar,
     }
 
     .logo-area i {
-        font-size: var(--font-base);
+        font-size: 1.4rem;
     }
 
     .logo-area h1 {
-        font-size: var(--font-sm);
+        font-size: 1.3rem;
     }
 
     .mobile-hamburger {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         padding: 2px 4px;
         min-height: 36px;
         min-width: 36px;
     }
 
     .home-btn {
-        font-size: 0.6rem;
+        font-size: 0.85rem;
         padding: 0.1rem var(--sp-xs);
-        min-height: 28px;
+        min-height: 34px;
+    }
+
+    .home-btn .btn-label {
+        display: inline;
     }
 
     .home-btn i {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .bubble {
-        font-size: 0.65rem;
-        padding: var(--sp-xs) var(--sp-sm);
-        max-width: 90%;
+        font-size: var(--font-base);
+        padding: var(--sp-sm) var(--sp-md);
+        max-width: 88%;
         border-radius: 1rem;
     }
 
     .message .avatar {
-        width: 32px;
-        height: 32px;
-        font-size: var(--font-xs);
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-sm);
         border-radius: 12px;
     }
 
     .message.user .avatar {
-        width: 30px;
-        height: 30px;
-        border-radius: 30px;
+        width: 34px;
+        height: 34px;
+        border-radius: 34px;
     }
 
     .chat-input-area input {
-        font-size: 0.6rem;
+        font-size: var(--font-sm);
         padding: var(--sp-xs) var(--sp-sm);
-        min-height: 32px;
+        min-height: 36px;
+        text-align: center;
     }
 
     .chat-input-area input::placeholder {
-        font-size: 0.6rem;
+        font-size: var(--font-sm);
+        text-align: center;
     }
 
     .chat-input-area button {
-        font-size: 0.6rem;
-        padding: 0 var(--sp-sm);
-        height: 36px;
-        min-height: 32px;
+        font-size: var(--font-sm);
+        width: 40px;
+        height: 40px;
+        min-height: 36px;
+        min-width: 36px;
+        padding: 0;
+    }
+
+    .chat-input-area button i {
+        font-size: 1.5em;
     }
 
     .sidebar-header {
@@ -1334,20 +1378,20 @@ body::-webkit-scrollbar,
     }
 
     .sidebar-header p {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         margin-top: var(--sp-xs);
     }
 
     .quick-question {
-        font-size: 0.6rem;
-        padding: 0.15rem var(--sp-xs);
-        min-height: 28px;
+        font-size: var(--font-sm);
+        padding: 0.2rem var(--sp-xs);
+        min-height: 32px;
         gap: 6px;
         border-radius: 24px;
     }
 
     .quick-question i {
-        font-size: 0.6rem;
+        font-size: var(--font-sm);
         width: 16px;
     }
 
@@ -1359,10 +1403,10 @@ body::-webkit-scrollbar,
     .sidebar-close-btn {
         top: var(--sp-xs);
         right: var(--sp-xs);
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        min-height: 28px;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
         font-size: var(--font-sm);
     }
 
@@ -1427,12 +1471,12 @@ body::-webkit-scrollbar,
 /* --- Extra Small (≤ 400px) --- */
 @media (max-width: 400px) {
     :root {
-        --font-xs: 0.6rem;
-        --font-sm: 0.7rem;
-        --font-base: 0.8rem;
-        --font-md: 0.9rem;
-        --font-lg: 1rem;
-        --font-xl: 1.1rem;
+        --font-xs: 0.7rem;
+        --font-sm: 0.8rem;
+        --font-base: 0.9rem;
+        --font-md: 1rem;
+        --font-lg: 1.1rem;
+        --font-xl: 1.2rem;
 
         --sp-xs: 0.08rem;
         --sp-sm: 0.2rem;
@@ -1442,7 +1486,7 @@ body::-webkit-scrollbar,
     }
 
     body {
-        font-size: var(--font-xs);
+        font-size: var(--font-base);
     }
 
     .questions-sidebar {
@@ -1455,96 +1499,108 @@ body::-webkit-scrollbar,
     }
 
     .bubble {
-        font-size: 0.6rem;
-        padding: 0.15rem var(--sp-xs);
-        max-width: 92%;
+        font-size: var(--font-base);
+        padding: var(--sp-xs) var(--sp-sm);
+        max-width: 90%;
         border-radius: 0.75rem;
     }
 
     .message .avatar {
-        width: 28px;
-        height: 28px;
-        font-size: 0.6rem;
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-sm);
         border-radius: 10px;
     }
 
     .message.user .avatar {
-        width: 26px;
-        height: 26px;
-        border-radius: 26px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
     }
 
     .chat-input-area input {
-        font-size: 0.55rem;
+        font-size: var(--font-sm);
         padding: 0.1rem var(--sp-xs);
-        min-height: 28px;
+        min-height: 32px;
         border-radius: 30px;
+        text-align: center;
     }
 
     .chat-input-area input::placeholder {
-        font-size: 0.55rem;
+        font-size: var(--font-sm);
+        text-align: center;
     }
 
     .chat-input-area button {
-        font-size: 0.55rem;
-        padding: 0 var(--sp-xs);
-        height: 30px;
-        min-height: 28px;
+        font-size: var(--font-sm);
+        width: 36px;
+        height: 36px;
+        min-height: 32px;
+        min-width: 32px;
+        padding: 0;
         border-radius: 30px;
     }
 
+    .chat-input-area button i {
+        font-size: 1.55em;
+    }
+
     .sidebar-header h3 {
-        font-size: 0.7rem;
+        font-size: var(--font-sm);
     }
 
     .sidebar-header p {
-        font-size: 0.5rem;
+        font-size: 0.65rem;
     }
 
     .quick-question {
-        font-size: 0.55rem;
-        padding: 0.1rem var(--sp-xs);
-        min-height: 24px;
+        font-size: var(--font-sm);
+        padding: 0.15rem var(--sp-xs);
+        min-height: 28px;
         gap: 4px;
         border-radius: 20px;
     }
 
     .quick-question i {
-        font-size: 0.5rem;
+        font-size: var(--font-xs);
         width: 14px;
     }
 
     .logo-area i {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .logo-area h1 {
-        font-size: 0.65rem;
+        font-size: 0.9rem;
     }
 
     .mobile-hamburger {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         padding: 2px 3px;
         min-height: 30px;
         min-width: 30px;
     }
 
     .home-btn {
-        font-size: 0.5rem;
+        font-size: 0.75rem;
         padding: 0.05rem var(--sp-xs);
-        min-height: 24px;
+        min-height: 30px;
+    }
+
+    .home-btn .btn-label {
+        display: inline;
     }
 
     .home-btn i {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .sidebar-close-btn {
-        width: 24px;
-        height: 24px;
-        min-width: 24px;
-        min-height: 24px;
-        font-size: 0.6rem;
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        min-height: 26px;
+        font-size: var(--font-xs);
     }
 
     .typing-indicator {
@@ -1552,7 +1608,7 @@ body::-webkit-scrollbar,
     }
 
     .typing-indicator span {
-        font-size: 0.5rem;
+        font-size: var(--font-xs);
     }
 
     .typing-dot {
@@ -1709,7 +1765,7 @@ body::-webkit-scrollbar,
                 <div class="message bot">
                     <div class="avatar"><i class="fas fa-robot"></i></div>
                     <div class="bubble">
-                        <strong>🚚 SureCargo Intelligent Assistant</strong><br />
+                        <strong> SureCargo Intelligent Assistant</strong><br />
                         I'm here to help with egg tray bookings, real-time tracking, GCash/COD payments, registration, and more.<br />
                         Ask me anything or click a question from the sidebar!
                     </div>
@@ -1718,7 +1774,7 @@ body::-webkit-scrollbar,
 
             <div class="chat-input-area">
                 <input type="text" id="userInput" placeholder="Ask me about booking, tracking, payments, registration..." autocomplete="off" />
-                <button id="sendBtn"><i class="fas fa-paper-plane"></i> Send</button>
+                <button id="sendBtn" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
@@ -1971,7 +2027,7 @@ body::-webkit-scrollbar,
                 addMessage('bot', aiReply, false);
 
                 sendBtn.disabled = false;
-                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
             }
 
             // Event listeners
@@ -1995,31 +2051,31 @@ body::-webkit-scrollbar,
             }
 
             // ============================================================
-            // POPULATE SIDEBAR QUESTIONS
+            // POPULATE SIDEBAR QUESTIONS (no emoji icons)
             // ============================================================
             const questions = [
-                "📦 How do I book a truck?",
-                "📝 How to register a new account?",
-                "📍 How does real-time tracking work?",
-                "💳 What payment methods are accepted?",
-                "🧾 How to pay via GCash QR?",
-                "🚛 What is the max capacity per truck?",
-                "✏️ Can I edit my booking after confirmation?",
-                "❌ How to cancel a booking?",
-                "⏱️ How long does admin confirmation take?",
-                "📊 Where can I see my booking history?",
-                "🛣️ What routes does SureCargo cover?",
-                "🔄 What does 'in_transit' status mean?",
-                "💰 How is the total amount calculated?",
-                "🔔 Will I receive notifications?",
-                "🧑‍💼 How to update my profile?",
-                "📞 Support contact?",
-                "🧾 What is COD & how does it work?",
-                "👥 Who are the truck personnel?",
-                "📦 Egg tray quantity limits?",
-                "💬 How does user-to-user messaging work?",
-                "📢 Where can I view announcements?",
-                "🔧 How to submit a damage request?"
+                "How do I book a truck?",
+                "How to register a new account?",
+                "How does real-time tracking work?",
+                "What payment methods are accepted?",
+                "How to pay via GCash QR?",
+                "What is the max capacity per truck?",
+                "Can I edit my booking after confirmation?",
+                "How to cancel a booking?",
+                "How long does admin confirmation take?",
+                "Where can I see my booking history?",
+                "What routes does SureCargo cover?",
+                "What does 'in_transit' status mean?",
+                "How is the total amount calculated?",
+                "Will I receive notifications?",
+                "How to update my profile?",
+                "Support contact?",
+                "What is COD & how does it work?",
+                "Who are the truck personnel?",
+                "Egg tray quantity limits?",
+                "How does user-to-user messaging work?",
+                "Where can I view announcements?",
+                "How to submit a damage request?"
             ];
 
             const sidebarList = document.getElementById('questionsList');
@@ -2027,29 +2083,9 @@ body::-webkit-scrollbar,
                 questions.forEach(function(q) {
                     const div = document.createElement('div');
                     div.className = 'quick-question';
-                    let iconHtml = '<i class="fas fa-comment"></i>';
-                    if (q.includes("📦")) iconHtml = '<i class="fas fa-box"></i>';
-                    else if (q.includes("📍")) iconHtml = '<i class="fas fa-map-marker-alt"></i>';
-                    else if (q.includes("💳") || q.includes("🧾")) iconHtml = '<i class="fas fa-credit-card"></i>';
-                    else if (q.includes("🚛")) iconHtml = '<i class="fas fa-truck"></i>';
-                    else if (q.includes("✏️")) iconHtml = '<i class="fas fa-edit"></i>';
-                    else if (q.includes("❌")) iconHtml = '<i class="fas fa-ban"></i>';
-                    else if (q.includes("⏱️")) iconHtml = '<i class="fas fa-clock"></i>';
-                    else if (q.includes("📊")) iconHtml = '<i class="fas fa-chart-line"></i>';
-                    else if (q.includes("🛣️")) iconHtml = '<i class="fas fa-road"></i>';
-                    else if (q.includes("🔄")) iconHtml = '<i class="fas fa-sync-alt"></i>';
-                    else if (q.includes("💰")) iconHtml = '<i class="fas fa-calculator"></i>';
-                    else if (q.includes("🔔")) iconHtml = '<i class="fas fa-bell"></i>';
-                    else if (q.includes("🧑‍💼")) iconHtml = '<i class="fas fa-user-edit"></i>';
-                    else if (q.includes("📞")) iconHtml = '<i class="fas fa-headset"></i>';
-                    else if (q.includes("👥")) iconHtml = '<i class="fas fa-users"></i>';
-                    else if (q.includes("💬")) iconHtml = '<i class="fas fa-comment-dots"></i>';
-                    else if (q.includes("📢")) iconHtml = '<i class="fas fa-bullhorn"></i>';
-                    else if (q.includes("🔧")) iconHtml = '<i class="fas fa-tools"></i>';
-                    else if (q.includes("📝")) iconHtml = '<i class="fas fa-user-plus"></i>';
-                    else iconHtml = '<i class="fas fa-question-circle"></i>';
-
-                    div.innerHTML = iconHtml + ' <span>' + q.replace(/^[^\w]+/, '').trim() + '</span>';
+                    // Use a generic comment icon for all questions
+                    const iconHtml = '<i class="fas fa-comment"></i>';
+                    div.innerHTML = iconHtml + ' <span>' + q + '</span>';
                     div.addEventListener('click', function() {
                         sendMessage(q);
                         if (window.innerWidth <= 860) {
@@ -2080,7 +2116,7 @@ body::-webkit-scrollbar,
                 }
             });
 
-            console.log('✅ Chatbot initialized with backend API + fallback');
+            console.log(' Chatbot initialized with backend API + fallback');
 
         })();
     </script>
